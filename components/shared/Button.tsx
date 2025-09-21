@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 
 interface ButtonProps {
   children: ReactNode
-  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: ((e: React.MouseEvent<HTMLButtonElement>) => void) | (() => void)
   variant?: 'primary' | 'secondary' | 'accent' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   className?: string
@@ -58,12 +58,23 @@ export default function Button({
     }
   } : {}
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      // Check if the function expects an event parameter by checking its length
+      if (onClick.length === 1) {
+        (onClick as (e: React.MouseEvent<HTMLButtonElement>) => void)(e)
+      } else {
+        (onClick as () => void)()
+      }
+    }
+  }
+
   return (
     <button
       type={type}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       style={{...ghostStyles, ...style}}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
       title={title}
       {...ghostHoverStyles}
