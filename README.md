@@ -63,7 +63,6 @@ ChooseAFeel/
 │   ├── AccessibilityBadge.tsx
 │   ├── ContentPanel.tsx
 │   ├── PreviewFrame.tsx
-│   ├── ScaleControl.tsx
 │   ├── TopNavbar.tsx
 │   ├── BottomNavbar.tsx
 │   └── ThemePanel.tsx
