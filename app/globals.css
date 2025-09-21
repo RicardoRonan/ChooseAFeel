@@ -181,6 +181,73 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* Equal height cards */
+.equal-height-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.equal-height-cards .surface-card,
+.equal-height-cards .surface-elevated {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.equal-height-cards .surface-card > *:last-child,
+.equal-height-cards .surface-elevated > *:last-child {
+  margin-top: auto;
+}
+
+/* Better alignment for card content */
+.equal-height-cards .surface-card,
+.equal-height-cards .surface-elevated {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.equal-height-cards .surface-card .mt-auto,
+.equal-height-cards .surface-elevated .mt-auto {
+  margin-top: auto;
+}
+
+/* Ensure text contrast and readability */
+.text-contrast-safe {
+  color: var(--color-text) !important;
+}
+
+.text-contrast-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Icon colors that work with any theme */
+.icon-success {
+  color: #10b981 !important; /* Green that works on most backgrounds */
+}
+
+.icon-primary {
+  color: var(--color-primary) !important;
+}
+
+/* Avatar backgrounds that work with any theme */
+.avatar-blue {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+.avatar-green {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.avatar-purple {
+  background-color: #e9d5ff !important;
+  color: #7c3aed !important;
+}
+
 .surface-primary {
   background: var(--color-primary);
   color: var(--color-primary-contrast);

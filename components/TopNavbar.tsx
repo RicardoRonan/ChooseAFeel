@@ -23,15 +23,37 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
   async function handleExportPNG() {
     try {
       const el = document.getElementById("preview-root")
-      if (el) {
-        const filename = `${project.type}-preview.png`
-        await exportPng(el, filename)
-      } else {
+      if (!el) {
         alert("Preview not found. Please make sure the preview is loaded.")
+        return
       }
+
+      // Check if element has content
+      if (!el.children.length) {
+        alert("No content to export. Please select a template first.")
+        return
+      }
+
+      const filename = `${project.type}-preview.png`
+      
+      // Debug: Log element information
+      console.log("Starting PNG export...")
+      console.log("Element dimensions:", {
+        width: el.offsetWidth,
+        height: el.offsetHeight,
+        children: el.children.length,
+        scrollHeight: el.scrollHeight,
+        innerHTML: el.innerHTML.substring(0, 200) + "...", // First 200 chars
+        computedStyle: window.getComputedStyle(el)
+      })
+      
+      await exportPng(el, filename)
+      
+      console.log("PNG export completed successfully")
     } catch (error) {
       console.error("PNG export failed:", error)
-      alert("PNG export failed. Please try again.")
+      const errorMessage = error instanceof Error ? error.message : "Unknown error occurred"
+      alert(`PNG export failed: ${errorMessage}`)
     }
   }
   
@@ -68,7 +90,7 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
 
   return (
     <nav className={`fixed top-0 left-0 z-[9998] backdrop-blur-md shadow-sm transition-all duration-300 ${
-      sidebarCollapsed ? 'right-0' : 'right-0 lg:right-80'
+      sidebarCollapsed ? 'right-0' : 'right-0'
     }`} style={{ 
       backgroundColor: 'var(--color-bg)', 
       borderBottom: '1px solid var(--color-border)',

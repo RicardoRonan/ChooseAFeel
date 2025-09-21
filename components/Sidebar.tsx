@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
 import ThemePanel from "./ThemePanel"
-import ContentPanel from "./ContentPanel"
+import PresetsPanel from "./PresetsPanel"
 import { useProject } from "@/store/project"
 import { Button, Modal } from "./shared"
 
@@ -11,7 +11,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps) {
-  const [activeTab, setActiveTab] = useState<'theme' | 'content'>('theme')
+  const [activeTab, setActiveTab] = useState<'theme' | 'presets'>('theme')
   const [showHelp, setShowHelp] = useState(false)
   const [showDisclaimer, setShowDisclaimer] = useState(false)
   const disclaimerRef = useRef<HTMLDivElement>(null)
@@ -60,21 +60,24 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed right-0 top-0 h-full z-50 backdrop-blur-md shadow-lg transition-all duration-300 ${
+      <aside className={`fixed right-0 z-50 backdrop-blur-md shadow-lg transition-all duration-300 ${
         isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'w-full sm:w-80 md:w-80 lg:w-80 opacity-100'
       }`} style={{ 
+        top: '64px', // Account for TopNavbar height
+        height: 'calc(100vh - 64px)', // Adjust height to account for TopNavbar
         backgroundColor: 'var(--color-bg)', 
         borderLeft: isCollapsed ? 'none' : '1px solid var(--color-border)',
         borderRadius: 'var(--radius) 0 0 var(--radius)',
         maxWidth: isCollapsed ? '0' : '320px',
+        minWidth: isCollapsed ? '0' : '280px',
         pointerEvents: isCollapsed ? 'none' : 'auto',
         // Prevent flash by setting initial opacity
         opacity: isCollapsed ? 0 : 1
       }}>
         <div className="h-full flex flex-col">
           {/* Header with collapse button */}
-          <div className="flex items-center justify-between px-4 py-3 sm:py-4" >
-            <h2 className="font-semibold" style={{ color: 'var(--color-text)' }}>Controls</h2>
+          <div className="flex items-center justify-between px-4 py-3 sm:py-4 min-h-[60px]">
+            <h2 className="font-semibold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>Controls</h2>
             <div className="flex items-center gap-2">
               <Button
                 onClick={() => setShowDisclaimer(!showDisclaimer)}
@@ -172,30 +175,30 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
                 Theme
               </button>
               <button
-                onClick={() => setActiveTab('content')}
+                onClick={() => setActiveTab('presets')}
                 className="flex-1 px-3 py-2 text-sm font-medium transition-colors"
                 style={{ 
                   borderRadius: 'var(--radius)',
-                  backgroundColor: activeTab === 'content' ? 'var(--color-bg)' : 'transparent',
-                  color: activeTab === 'content' ? 'var(--color-text)' : 'var(--color-text-secondary)',
-                  boxShadow: activeTab === 'content' ? 'var(--shadow-sm)' : 'none'
+                  backgroundColor: activeTab === 'presets' ? 'var(--color-bg)' : 'transparent',
+                  color: activeTab === 'presets' ? 'var(--color-text)' : 'var(--color-text-secondary)',
+                  boxShadow: activeTab === 'presets' ? 'var(--shadow-sm)' : 'none'
                 }}
                 onMouseEnter={(e) => {
-                  if (activeTab !== 'content') {
+                  if (activeTab !== 'presets') {
                     const element = e.target as HTMLElement
                     const computedStyle = getComputedStyle(document.documentElement)
                     element.style.color = computedStyle.getPropertyValue('--color-text')
                   }
                 }}
                 onMouseLeave={(e) => {
-                  if (activeTab !== 'content') {
+                  if (activeTab !== 'presets') {
                     const element = e.target as HTMLElement
                     const computedStyle = getComputedStyle(document.documentElement)
                     element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
                   }
                 }}
               >
-                Content
+                Presets
               </button>
             </div>
           </div>
@@ -205,8 +208,8 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
             {activeTab === 'theme' && (
               <ThemePanel />
             )}
-            {activeTab === 'content' && (
-              <ContentPanel />
+            {activeTab === 'presets' && (
+              <PresetsPanel />
             )}
           </div>
         </div>
@@ -220,11 +223,12 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
             e.stopPropagation()
             onCollapseChange(false)
           }}
-          className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 p-3 shadow-lg lg:hidden transition-all duration-200"
+          className="fixed right-4 z-50 p-3 shadow-lg lg:hidden transition-all duration-200"
           style={{ 
-            backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)',
-            backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(var(--color-border-rgb, 229, 231, 235), 0.5)',
+            top: 'calc(50vh + 32px)', // Account for TopNavbar height
+            backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.3)',
+            backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(var(--color-border-rgb, 229, 231, 235), 0.3)',
             borderRadius: 'var(--radius) 0 0 var(--radius)',
             color: 'var(--color-text-secondary)'
           }}
@@ -232,12 +236,12 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
           data-sidebar-toggle
           onMouseEnter={(e) => {
             const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.9)'
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.6)'
             element.style.color = 'var(--color-text)'
           }}
           onMouseLeave={(e) => {
             const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)'
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.3)'
             element.style.color = 'var(--color-text-secondary)'
           }}
         >
@@ -255,8 +259,9 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
             e.stopPropagation()
             onCollapseChange(false)
           }}
-          className="fixed right-4 top-20 z-50 p-2 shadow-lg hidden lg:block transition-all duration-200"
+          className="fixed right-4 z-50 p-2 shadow-lg hidden lg:block transition-all duration-200"
           style={{ 
+            top: '84px', // Account for TopNavbar height
             backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)',
             backdropFilter: 'blur(12px)',
             border: '1px solid rgba(var(--color-border-rgb, 229, 231, 235), 0.5)',
@@ -353,11 +358,11 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
                 </div>
               </div>
 
-              {/* Content Controls */}
+              {/* Presets Controls */}
               <div>
-                <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--color-text)' }}>Content Controls</h3>
+                <h3 className="text-lg font-medium mb-3" style={{ color: 'var(--color-text)' }}>Presets</h3>
                 <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                  Click &quot;Edit&quot; to expand content fields and customize text, images, and other content for your chosen template.
+                  Choose from professionally designed color palettes. Each preset includes carefully selected colors that work harmoniously together.
                 </p>
               </div>
 

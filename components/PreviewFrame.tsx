@@ -34,7 +34,12 @@ export default function PreviewFrame() {
           className="fade-in"
           style={{ 
             transformOrigin: "center center",
-            transition: "transform 0.2s ease"
+            transition: "transform 0.2s ease",
+            minWidth: "320px",
+            minHeight: "200px",
+            maxWidth: "1200px",
+            width: "100%",
+            height: "auto"
           }}
         >
           {renderTemplate()}
