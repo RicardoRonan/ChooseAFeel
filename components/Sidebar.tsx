@@ -6,19 +6,29 @@ import { useProject } from "@/store/project"
 import { Button, Modal } from "./shared"
 
 interface SidebarProps {
-  onCollapseChange?: (collapsed: boolean) => void
+  isCollapsed: boolean
+  onCollapseChange: (collapsed: boolean) => void
 }
 
-export default function Sidebar({ onCollapseChange }: SidebarProps) {
-  const [isCollapsed, setIsCollapsed] = useState(false)
+export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps) {
   const [activeTab, setActiveTab] = useState<'theme' | 'content'>('theme')
   const [showHelp, setShowHelp] = useState(false)
   const [showDisclaimer, setShowDisclaimer] = useState(false)
   const disclaimerRef = useRef<HTMLDivElement>(null)
   const { project } = useProject()
 
+  // Handle resize events to auto-collapse/expand sidebar
   useEffect(() => {
-    onCollapseChange?.(isCollapsed)
+    const handleResize = () => {
+      if (window.innerWidth < 1024 && !isCollapsed) {
+        onCollapseChange(true)
+      } else if (window.innerWidth >= 1024 && isCollapsed) {
+        onCollapseChange(false)
+      }
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [isCollapsed, onCollapseChange])
 
 
@@ -41,13 +51,25 @@ export default function Sidebar({ onCollapseChange }: SidebarProps) {
 
   return (
     <>
+      {/* Backdrop overlay for mobile/tablet */}
+      {!isCollapsed && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => onCollapseChange(true)}
+        />
+      )}
+
       {/* Sidebar */}
       <aside className={`fixed right-0 top-0 h-full z-50 backdrop-blur-md shadow-lg transition-all duration-300 ${
-        isCollapsed ? 'w-0' : 'w-80 lg:w-80 md:w-72 sm:w-64'
+        isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'w-full sm:w-80 md:w-80 lg:w-80 opacity-100'
       }`} style={{ 
         backgroundColor: 'var(--color-bg)', 
-        borderLeft: '1px solid var(--color-border)',
-        borderRadius: 'var(--radius) 0 0 var(--radius)'
+        borderLeft: isCollapsed ? 'none' : '1px solid var(--color-border)',
+        borderRadius: 'var(--radius) 0 0 var(--radius)',
+        maxWidth: isCollapsed ? '0' : '320px',
+        pointerEvents: isCollapsed ? 'none' : 'auto',
+        // Prevent flash by setting initial opacity
+        opacity: isCollapsed ? 0 : 1
       }}>
         <div className="h-full flex flex-col">
           {/* Header with collapse button */}
@@ -91,11 +113,16 @@ export default function Sidebar({ onCollapseChange }: SidebarProps) {
                 </svg>
               </Button>
               <Button
-                onClick={() => setIsCollapsed(!isCollapsed)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onCollapseChange(!isCollapsed)
+                }}
                 variant="ghost"
                 size="sm"
                 className="p-1.5"
                 title={isCollapsed ? "Show sidebar" : "Hide sidebar"}
+                data-sidebar-toggle
               >
                 <svg 
                   className={`w-4 h-4 transition-transform duration-200 ${
@@ -185,23 +212,74 @@ export default function Sidebar({ onCollapseChange }: SidebarProps) {
         </div>
       </aside>
 
-      {/* Collapsed sidebar button */}
+      {/* Collapsed sidebar button - positioned in middle for mobile/tablet */}
       {isCollapsed && (
-        <Button
-          onClick={() => setIsCollapsed(false)}
-          variant="ghost"
-          className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 backdrop-blur-md p-3 shadow-lg"
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            onCollapseChange(false)
+          }}
+          className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 p-3 shadow-lg lg:hidden transition-all duration-200"
           style={{ 
-            backgroundColor: 'var(--color-bg)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius) 0 0 var(--radius)'
+            backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(var(--color-border-rgb, 229, 231, 235), 0.5)',
+            borderRadius: 'var(--radius) 0 0 var(--radius)',
+            color: 'var(--color-text-secondary)'
           }}
           title="Show sidebar"
+          data-sidebar-toggle
+          onMouseEnter={(e) => {
+            const element = e.target as HTMLElement
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.9)'
+            element.style.color = 'var(--color-text)'
+          }}
+          onMouseLeave={(e) => {
+            const element = e.target as HTMLElement
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)'
+            element.style.color = 'var(--color-text-secondary)'
+          }}
         >
-          <svg className="w-5 h-5" style={{ color: 'var(--color-text-secondary)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </Button>
+        </button>
+      )}
+
+      {/* Desktop collapsed sidebar button - positioned at top */}
+      {isCollapsed && (
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            onCollapseChange(false)
+          }}
+          className="fixed right-4 top-20 z-50 p-2 shadow-lg hidden lg:block transition-all duration-200"
+          style={{ 
+            backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(var(--color-border-rgb, 229, 231, 235), 0.5)',
+            borderRadius: 'var(--radius) 0 0 var(--radius)',
+            color: 'var(--color-text-secondary)'
+          }}
+          title="Show sidebar"
+          data-sidebar-toggle
+          onMouseEnter={(e) => {
+            const element = e.target as HTMLElement
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.9)'
+            element.style.color = 'var(--color-text)'
+          }}
+          onMouseLeave={(e) => {
+            const element = e.target as HTMLElement
+            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)'
+            element.style.color = 'var(--color-text-secondary)'
+          }}
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       )}
 
       {/* Help Modal */}

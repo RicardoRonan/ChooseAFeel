@@ -27,23 +27,22 @@ export default function Input({
         value={value} 
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-3 py-2 rounded-md text-sm focus:outline-none transition-colors"
+        className="w-full px-3 py-2 text-sm focus:outline-none transition-colors"
         style={{ 
           border: '1px solid var(--color-border)',
           backgroundColor: 'var(--color-bg)',
-          color: 'var(--color-text)'
+          color: 'var(--color-text)',
+          borderRadius: 'var(--radius)'
         }}
         onFocus={(e) => {
           const element = e.target as HTMLElement
-          const computedStyle = getComputedStyle(document.documentElement)
-          element.style.borderColor = computedStyle.getPropertyValue('--color-primary')
-          e.target.style.boxShadow = '0 0 0 3px rgb(103 80 164 / 0.1)'
+          element.style.borderColor = 'var(--color-primary)'
+          element.style.boxShadow = '0 0 0 3px rgb(103 80 164 / 0.1)'
         }}
         onBlur={(e) => {
           const element = e.target as HTMLElement
-          const computedStyle = getComputedStyle(document.documentElement)
-          element.style.borderColor = computedStyle.getPropertyValue('--color-border')
-          e.target.style.boxShadow = 'none'
+          element.style.borderColor = 'var(--color-border)'
+          element.style.boxShadow = 'none'
         }}
       />
     </div>

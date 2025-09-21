@@ -55,6 +55,18 @@ export const darkTheme: Theme = {
   paletteType: undefined
 }
 
+// Helper function to convert hex to RGB
+function hexToRgb(hex: string): string {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  if (result) {
+    const r = parseInt(result[1], 16)
+    const g = parseInt(result[2], 16)
+    const b = parseInt(result[3], 16)
+    return `${r}, ${g}, ${b}`
+  }
+  return "255, 255, 255" // fallback
+}
+
 export function applyTheme(theme: Theme): void {
   if (typeof window === 'undefined') return
   
@@ -71,6 +83,10 @@ export function applyTheme(theme: Theme): void {
   r.setProperty("--radius", `${theme.radius}px`)
   r.setProperty("--font-family", theme.fontFamily)
   r.setProperty("--use-borders", theme.useBorders ? "1" : "0")
+  
+  // Set RGB values for transparency support
+  r.setProperty("--color-bg-rgb", hexToRgb(theme.palette.bg))
+  r.setProperty("--color-border-rgb", hexToRgb(theme.palette.border))
   
   // Set appropriate shadow variables based on theme mode
   if (theme.isDarkMode) {

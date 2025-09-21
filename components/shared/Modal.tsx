@@ -67,8 +67,12 @@ export default function Modal({
     >
       <div 
         ref={modalRef}
-        className={`w-full ${sizeClasses[size]} max-h-[80vh] overflow-y-auto rounded-lg shadow-xl ${className}`}
-        style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)' }}
+        className={`w-full ${sizeClasses[size]} max-h-[80vh] overflow-y-auto shadow-xl ${className}`}
+        style={{ 
+          backgroundColor: 'var(--color-bg)', 
+          border: '1px solid var(--color-border)',
+          borderRadius: 'var(--radius)'
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -87,8 +91,7 @@ export default function Modal({
               onMouseEnter={(e) => {
                 if (typeof window === 'undefined') return
                 const element = e.target as HTMLElement
-                const computedStyle = getComputedStyle(document.documentElement)
-                element.style.backgroundColor = computedStyle.getPropertyValue('--color-surface')
+                element.style.backgroundColor = 'var(--color-surface)'
               }}
               onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = 'transparent'}
             >

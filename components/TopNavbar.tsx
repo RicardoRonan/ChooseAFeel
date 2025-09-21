@@ -68,7 +68,7 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
 
   return (
     <nav className={`fixed top-0 left-0 z-[9998] backdrop-blur-md shadow-sm transition-all duration-300 ${
-      sidebarCollapsed ? 'right-0' : 'right-0 lg:right-80 md:right-72 sm:right-64'
+      sidebarCollapsed ? 'right-0' : 'right-0 lg:right-80'
     }`} style={{ 
       backgroundColor: 'var(--color-bg)', 
       borderBottom: '1px solid var(--color-border)',
@@ -76,20 +76,20 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
     }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          {/* Left section - App title */}
+          {/* Left section - App title (hidden on mobile) */}
           <div className="flex items-center gap-4">
-            <h1 className="text-lg sm:text-xl font-bold" style={{ color: 'var(--color-text)' }}>ChooseAFeel</h1>
+            <h1 className="hidden sm:block text-lg sm:text-xl font-bold" style={{ color: 'var(--color-text)' }}>ChooseAFeel</h1>
           </div>
 
           {/* Right section - Actions */}
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-4">
             
             {/* Templates Dropdown */}
             <Dropdown
               options={templateOptions}
               onSelect={handleTemplateSelect as (value: string) => void}
               placeholder="Templates"
-              width="w-40"
+              width="w-32 sm:w-36 md:w-40"
               className="relative"
             />
             
@@ -104,7 +104,7 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
                 if (value === 'zip') handleExportZIP()
               }}
               placeholder="Export"
-              width="w-32"
+              width="w-24 sm:w-28 md:w-32"
               className="relative"
             />
           </div>

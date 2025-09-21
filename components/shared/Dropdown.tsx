@@ -27,6 +27,7 @@ export default function Dropdown<T = string>({
 }: DropdownProps<T>) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -45,31 +46,36 @@ export default function Dropdown<T = string>({
     }
   }, [isOpen])
 
+  // Reset button styles when theme changes (when CSS variables change)
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.style.backgroundColor = 'var(--color-bg)'
+    }
+  }, [value]) // Re-run when value changes (which happens when theme changes)
+
   const selectedOption = options.find(option => option.value === value)
   const displayValue = selectedOption ? selectedOption.label : placeholder
 
   return (
     <div className={`relative ${width} ${className}`} ref={dropdownRef}>
       <button 
-        className={`${width} text-sm rounded px-3 py-2 flex items-center justify-between transition-colors`}
+        ref={buttonRef}
+        className={`${width} text-sm px-3 py-2 flex items-center justify-between transition-colors`}
         style={{ 
           border: '1px solid var(--color-border)',
           backgroundColor: 'var(--color-bg)',
-          color: 'var(--color-text)'
+          color: 'var(--color-text)',
+          borderRadius: 'var(--radius)'
         }}
         onMouseEnter={(e) => {
           if (typeof window === 'undefined') return
           const element = e.target as HTMLElement
-          const computedStyle = getComputedStyle(document.documentElement)
-          element.style.backgroundColor = computedStyle.getPropertyValue('--color-surface')
-          element.style.borderRadius = computedStyle.getPropertyValue('--radius')
+          element.style.backgroundColor = 'var(--color-surface)'
         }}
         onMouseLeave={(e) => {
           if (typeof window === 'undefined') return
           const element = e.target as HTMLElement
-          const computedStyle = getComputedStyle(document.documentElement)
-          element.style.backgroundColor = computedStyle.getPropertyValue('--color-bg')
-          element.style.borderRadius = computedStyle.getPropertyValue('--radius')
+          element.style.backgroundColor = 'var(--color-bg)'
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -106,16 +112,12 @@ export default function Dropdown<T = string>({
               onMouseEnter={(e) => {
                 if (typeof window === 'undefined') return
                 const element = e.target as HTMLElement
-                const computedStyle = getComputedStyle(document.documentElement)
-                element.style.backgroundColor = computedStyle.getPropertyValue('--color-surface')
-                element.style.borderRadius = computedStyle.getPropertyValue('--radius')
+                element.style.backgroundColor = 'var(--color-surface)'
               }}
               onMouseLeave={(e) => {
                 if (typeof window === 'undefined') return
                 const element = e.target as HTMLElement
                 element.style.backgroundColor = 'transparent'
-                const computedStyle = getComputedStyle(document.documentElement)
-                element.style.borderRadius = computedStyle.getPropertyValue('--radius')
               }}
               onClick={() => {
                 onSelect(option.value as T)
