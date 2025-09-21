@@ -1,6 +1,6 @@
 # ChooseAFeel
 
-A complete production-ready project inspired by [Realtime Colors](https://www.realtimecolors.com/) that lets users create and customize website templates with live-edit color palette, font, and border radius. Includes export to PNG for printables and ZIP for website starter.
+A complete production-ready project that lets users create and customize website templates with live-edit color palette, font, and border radius. Includes export to PNG for printables and ZIP for website starter.
 
 ## Features
 
@@ -40,14 +40,6 @@ A complete production-ready project inspired by [Realtime Colors](https://www.re
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Design Inspiration
-
-This project is inspired by [Realtime Colors](https://www.realtimecolors.com/), featuring:
-- **Toolbar Interface**: Clean horizontal toolbar at the bottom with all controls
-- **Full-Screen Preview**: Centered preview area that takes up most of the screen
-- **Minimal Design**: Clean, modern aesthetic with subtle shadows and smooth transitions
-- **Live Updates**: Real-time theme changes with smooth animations
-- **Accessibility Focus**: Visual contrast indicators and WCAG compliance checking
 
 ## Usage
 
