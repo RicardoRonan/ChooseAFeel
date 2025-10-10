@@ -1,6 +1,6 @@
 "use client"
 import { useProject, ProjectType } from "@/store/project"
-import { exportPng, exportZip, websiteIndexHtml, websiteStylesCss } from "@/lib/export"
+import { exportPng, exportZip, websiteIndexHtml, websiteStylesCss, copyCSS } from "@/lib/export"
 import { useState, useEffect, useRef } from "react"
 import { Button, Dropdown } from "./shared"
 
@@ -84,6 +84,31 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
     }
   }
 
+  async function handleCopyCSS() {
+    try {
+      const vars = {
+        "--color-primary": project.theme.palette.primary,
+        "--color-primary-contrast": project.theme.palette.primaryContrast,
+        "--color-secondary": project.theme.palette.secondary,
+        "--color-accent": project.theme.palette.accent,
+        "--color-bg": project.theme.palette.bg,
+        "--color-surface": project.theme.palette.surface,
+        "--color-text": project.theme.palette.text,
+        "--color-text-secondary": project.theme.palette.textSecondary,
+        "--color-border": project.theme.palette.border,
+        "--radius": `${project.theme.radius}px`,
+        "--font-family": project.theme.fontFamily
+      }
+      
+      const cssString = copyCSS(vars)
+      await navigator.clipboard.writeText(cssString)
+      alert("CSS variables copied to clipboard!")
+    } catch (error) {
+      console.error("Copy CSS failed:", error)
+      alert("Failed to copy CSS. Please try again.")
+    }
+  }
+
   function handleTemplateSelect(templateType: ProjectType) {
     setType(templateType)
   }
@@ -119,11 +144,13 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
             <Dropdown
               options={[
                 { value: 'png', label: 'Export PNG' },
-                { value: 'zip', label: 'Export ZIP' }
+                { value: 'zip', label: 'Export ZIP' },
+                { value: 'css', label: 'Copy CSS' }
               ]}
               onSelect={(value) => {
                 if (value === 'png') handleExportPNG()
                 if (value === 'zip') handleExportZIP()
+                if (value === 'css') handleCopyCSS()
               }}
               placeholder="Export"
               width="w-24 sm:w-28 md:w-32"

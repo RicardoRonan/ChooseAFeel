@@ -209,3 +209,9 @@ body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var
 .footer{opacity:.9}
 `
 }
+
+export function copyCSS(vars: Record<string, string>): string {
+  return `:root {
+${Object.entries(vars).map(([k,v]) => `  ${k}: ${v};`).join("\n")}
+}`
+}
