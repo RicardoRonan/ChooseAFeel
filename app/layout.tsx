@@ -9,6 +9,13 @@ export const metadata = {
   description: "Create perfect color palettes with confidence. Design your brand palette instantly."
 }
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className}>

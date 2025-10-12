@@ -5,6 +5,7 @@ import Dashboard from "./templates/Dashboard"
 import Blog from "./templates/Blog"
 import Products from "./templates/Products"
 import Portfolio from "./templates/Portfolio"
+import RubikCube from "./templates/RubikCube"
 
 export default function PreviewFrame() {
   const { project } = useProject()
@@ -19,6 +20,8 @@ export default function PreviewFrame() {
         return <Products />
       case 'portfolio':
         return <Portfolio />
+      case 'rubik':
+        return <RubikCube />
       case 'website':
       default:
         return <WebsiteLanding />

@@ -18,6 +18,52 @@ export default function Page() {
   
   useEffect(() => { loadLocal() }, [loadLocal])
 
+  // Prevent body scroll when sidebar is open on mobile
+  useEffect(() => {
+    const updateScrollPrevention = () => {
+      const isMobile = window.innerWidth < 1024
+      
+      if (isMobile && !sidebarCollapsed) {
+        // Prevent scrolling when sidebar is open on mobile
+        document.body.style.overflow = 'hidden'
+        document.body.style.position = 'fixed'
+        document.body.style.width = '100%'
+        document.body.style.top = `-${window.scrollY}px`
+      } else {
+        // Restore scrolling when sidebar is closed or on desktop
+        const scrollY = document.body.style.top
+        document.body.style.overflow = 'unset'
+        document.body.style.position = 'unset'
+        document.body.style.width = 'unset'
+        document.body.style.top = 'unset'
+        
+        // Restore scroll position if it was saved
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY || '0') * -1)
+        }
+      }
+    }
+
+    // Update scroll prevention on mount and when sidebar state changes
+    updateScrollPrevention()
+
+    // Handle window resize to update scroll prevention
+    const handleResize = () => {
+      updateScrollPrevention()
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+      document.body.style.position = 'unset'
+      document.body.style.width = 'unset'
+      document.body.style.top = 'unset'
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [sidebarCollapsed])
+
   // Handle click outside sidebar to close it on mobile/tablet
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {

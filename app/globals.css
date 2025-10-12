@@ -439,3 +439,61 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-secondary);
 }
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .preview-container {
+    padding: 0.5rem;
+    min-height: calc(100vh - 100px);
+  }
+  
+  .template-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .template-card {
+    padding: 0.75rem;
+  }
+  
+  /* Improve touch targets */
+  .button, .button-accent, .button-secondary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .surface-card, .surface-elevated {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Mobile-specific cube container improvements */
+  .cube-container {
+    max-height: 50vh !important;
+    width: 95vw !important;
+  }
+  
+  /* Ensure proper mobile viewport handling */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improve mobile scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select, textarea, input[type="text"], input[type="password"], 
+  input[type="datetime"], input[type="datetime-local"], 
+  input[type="date"], input[type="month"], input[type="time"], 
+  input[type="week"], input[type="number"], input[type="email"], 
+  input[type="url"], input[type="search"], input[type="tel"], 
+  input[type="color"] {
+    font-size: 16px;
+  }
+}

@@ -16,7 +16,8 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
     { value: "dashboard", label: "Dashboard" },
     { value: "blog", label: "Blog" },
     { value: "products", label: "Products" },
-    { value: "portfolio", label: "Portfolio" }
+    { value: "portfolio", label: "Portfolio" },
+    { value: "rubik", label: "Rubik's Cube" }
   ]
 
   

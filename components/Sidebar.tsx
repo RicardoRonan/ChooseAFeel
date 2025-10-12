@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react"
 import ThemePanel from "./ThemePanel"
 import PresetsPanel from "./PresetsPanel"
+import RubikPanel from "./RubikPanel"
 import { useProject } from "@/store/project"
 import { Button, Modal } from "./shared"
 
@@ -11,7 +12,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps) {
-  const [activeTab, setActiveTab] = useState<'theme' | 'presets'>('theme')
+  const [activeTab, setActiveTab] = useState<'theme' | 'presets' | 'rubik'>('theme')
   const [showHelp, setShowHelp] = useState(false)
   const [showDisclaimer, setShowDisclaimer] = useState(false)
   const disclaimerRef = useRef<HTMLDivElement>(null)
@@ -30,6 +31,13 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [isCollapsed, onCollapseChange])
+
+  // Auto-switch to theme tab when switching away from Rubik cube
+  useEffect(() => {
+    if (project.type !== 'rubik' && activeTab === 'rubik') {
+      setActiveTab('theme')
+    }
+  }, [project.type, activeTab])
 
 
   // Close disclaimer when clicking outside
@@ -150,7 +158,7 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
             }}>
               <button
                 onClick={() => setActiveTab('theme')}
-                className="flex-1 px-3 py-2 text-sm font-medium transition-colors"
+                className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
                 style={{ 
                   borderRadius: 'var(--radius)',
                   backgroundColor: activeTab === 'theme' ? 'var(--color-bg)' : 'transparent',
@@ -176,7 +184,7 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
               </button>
               <button
                 onClick={() => setActiveTab('presets')}
-                className="flex-1 px-3 py-2 text-sm font-medium transition-colors"
+                className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
                 style={{ 
                   borderRadius: 'var(--radius)',
                   backgroundColor: activeTab === 'presets' ? 'var(--color-bg)' : 'transparent',
@@ -200,6 +208,34 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
               >
                 Presets
               </button>
+              {project.type === 'rubik' && (
+                <button
+                  onClick={() => setActiveTab('rubik')}
+                  className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
+                  style={{ 
+                    borderRadius: 'var(--radius)',
+                    backgroundColor: activeTab === 'rubik' ? 'var(--color-bg)' : 'transparent',
+                    color: activeTab === 'rubik' ? 'var(--color-text)' : 'var(--color-text-secondary)',
+                    boxShadow: activeTab === 'rubik' ? 'var(--shadow-sm)' : 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeTab !== 'rubik') {
+                      const element = e.target as HTMLElement
+                      const computedStyle = getComputedStyle(document.documentElement)
+                      element.style.color = computedStyle.getPropertyValue('--color-text')
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeTab !== 'rubik') {
+                      const element = e.target as HTMLElement
+                      const computedStyle = getComputedStyle(document.documentElement)
+                      element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
+                    }
+                  }}
+                >
+                  Cube
+                </button>
+              )}
             </div>
           </div>
 
@@ -210,6 +246,9 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
             )}
             {activeTab === 'presets' && (
               <PresetsPanel />
+            )}
+            {activeTab === 'rubik' && (
+              <RubikPanel />
             )}
           </div>
         </div>

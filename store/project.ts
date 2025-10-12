@@ -5,7 +5,7 @@ import { pickTextFor, generateRandomCoolPalette } from "@/lib/palette"
 import { setFontLink, GOOGLE_FONTS } from "@/lib/fonts"
 import { save, load } from "@/lib/storage"
 
-export type ProjectType = "website" | "dashboard" | "blog" | "products" | "portfolio"
+export type ProjectType = "website" | "dashboard" | "blog" | "products" | "portfolio" | "rubik"
 
 type WebsiteContent = {
   siteName: string
@@ -54,6 +54,14 @@ export type Project = {
   blog: BlogContent
   products: ProductsContent
   portfolio: PortfolioContent
+  cubeColors: {
+    front: string
+    back: string
+    top: string
+    bottom: string
+    right: string
+    left: string
+  }
 }
 
 type State = {
@@ -66,6 +74,9 @@ type State = {
   updateBlog: (patch: Partial<BlogContent>) => void
   updateProducts: (patch: Partial<ProductsContent>) => void
   updatePortfolio: (patch: Partial<PortfolioContent>) => void
+  updateCubeColors: (patch: Partial<Project['cubeColors']>) => void
+  resetCubeColors: () => void
+  randomizeCubeColors: () => void
   resetTheme: () => void
   toggleDarkMode: () => void
   randomizeColors: () => void
@@ -77,6 +88,14 @@ const defaultProject: Project = {
   id: "local",
   type: "website",
   theme: defaultTheme,
+  cubeColors: {
+    front: "#3b82f6",
+    back: "#ef4444", 
+    top: "#10b981",
+    bottom: "#f59e0b",
+    right: "#8b5cf6",
+    left: "#06b6d4"
+  },
   website: {
     siteName: "ChooseAFeel",
     heroHeading: "Design Your Perfect Brand Palette Instantly",
@@ -123,7 +142,21 @@ export const useProject = create<State>((set, get) => ({
       theme.palette.primaryContrast = pc
     }
     queueMicrotask(() => applyTheme(theme))
-    return { project: { ...s.project, theme } }
+    
+    // Auto-sync cube colors with theme if on Rubik cube page
+    const newProject = { ...s.project, theme }
+    if (s.project.type === 'rubik') {
+      newProject.cubeColors = {
+        front: theme.palette.primary,
+        back: theme.palette.secondary,
+        top: theme.palette.accent,
+        bottom: theme.palette.surface,
+        right: theme.palette.text,
+        left: theme.palette.textSecondary
+      }
+    }
+    
+    return { project: newProject }
   }),
   setFontByLabel: (label) => set(s => {
     const f = GOOGLE_FONTS.find(x => x.label === label)
@@ -140,6 +173,43 @@ export const useProject = create<State>((set, get) => ({
   updateBlog: (patch) => set(s => ({ project: { ...s.project, blog: { ...s.project.blog, ...patch } } })),
   updateProducts: (patch) => set(s => ({ project: { ...s.project, products: { ...s.project.products, ...patch } } })),
   updatePortfolio: (patch) => set(s => ({ project: { ...s.project, portfolio: { ...s.project.portfolio, ...patch } } })),
+  updateCubeColors: (patch) => set(s => ({ project: { ...s.project, cubeColors: { ...s.project.cubeColors, ...patch } } })),
+  resetCubeColors: () => set(s => {
+    const p = s.project.theme.palette
+    return { 
+      project: { 
+        ...s.project, 
+        cubeColors: {
+          front: p.primary,
+          back: p.secondary,
+          top: p.accent,
+          bottom: p.surface,
+          right: p.text,
+          left: p.textSecondary
+        }
+      } 
+    }
+  }),
+  randomizeCubeColors: () => set(s => {
+    const colors = [
+      '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD',
+      '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9', '#F8C471', '#82E0AA'
+    ]
+    const shuffled = colors.sort(() => 0.5 - Math.random())
+    return { 
+      project: { 
+        ...s.project, 
+        cubeColors: {
+          front: shuffled[0],
+          back: shuffled[1],
+          top: shuffled[2],
+          bottom: shuffled[3],
+          right: shuffled[4],
+          left: shuffled[5]
+        }
+      } 
+    }
+  }),
   resetTheme: () => set(s => {
     setFontLink(undefined)
     queueMicrotask(() => applyTheme(defaultTheme))
