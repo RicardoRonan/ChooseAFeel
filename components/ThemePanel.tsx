@@ -29,7 +29,10 @@ export default function ThemePanel() {
       paletteType: type
     }
     
-    updateTheme(newTheme)
+    // Add a subtle delay for smooth transition
+    setTimeout(() => {
+      updateTheme(newTheme)
+    }, 100)
   }
 
   // Function to get the display label for the current font
@@ -61,10 +64,15 @@ export default function ThemePanel() {
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-medium" style={{ color: 'var(--color-text)' }}>Colors</h3>
           <Button
-            onClick={randomizeColors}
+            onClick={() => {
+              // Add a subtle delay for smooth transition
+              setTimeout(() => {
+                randomizeColors()
+              }, 100)
+            }}
             variant="secondary"
             size="sm"
-            className="text-xs"
+            className="text-xs transition-all duration-300 hover:scale-105"
           >
             🎨 Randomize
           </Button>
@@ -73,37 +81,65 @@ export default function ThemePanel() {
           <ColorInput 
             label="Primary"
             value={p.primary}
-            onChange={value => updateTheme({ palette: { ...p, primary: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, primary: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Secondary"
             value={p.secondary}
-            onChange={value => updateTheme({ palette: { ...p, secondary: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, secondary: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Accent"
             value={p.accent}
-            onChange={value => updateTheme({ palette: { ...p, accent: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, accent: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Background"
             value={p.bg}
-            onChange={value => updateTheme({ palette: { ...p, bg: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, bg: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Surface"
             value={p.surface}
-            onChange={value => updateTheme({ palette: { ...p, surface: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, surface: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Text"
             value={p.text}
-            onChange={value => updateTheme({ palette: { ...p, text: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, text: value } as any })
+              }, 50)
+            }}
           />
           <ColorInput 
             label="Text Secondary"
             value={p.textSecondary}
-            onChange={value => updateTheme({ palette: { ...p, textSecondary: value } as any })}
+            onChange={value => {
+              setTimeout(() => {
+                updateTheme({ palette: { ...p, textSecondary: value } as any })
+              }, 50)
+            }}
           />
         </div>
       </div>

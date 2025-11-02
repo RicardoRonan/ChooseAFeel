@@ -5,6 +5,7 @@ import PresetsPanel from "./PresetsPanel"
 import RubikPanel from "./RubikPanel"
 import { useProject } from "@/store/project"
 import { Button, Modal } from "./shared"
+import { isAA } from "@/lib/palette"
 
 interface SidebarProps {
   isCollapsed: boolean
@@ -17,6 +18,11 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
   const [showDisclaimer, setShowDisclaimer] = useState(false)
   const disclaimerRef = useRef<HTMLDivElement>(null)
   const { project } = useProject()
+
+  // Check accessibility status
+  const okBody = isAA(project.theme.palette.text, project.theme.palette.bg)
+  const okPrimary = isAA(project.theme.palette.primaryContrast, project.theme.palette.primary)
+  const isAccessible = okBody && okPrimary
 
   // Handle resize events to auto-collapse/expand sidebar
   useEffect(() => {
@@ -68,8 +74,8 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed right-0 z-50 backdrop-blur-md shadow-lg transition-all duration-300 ${
-        isCollapsed ? 'w-0 overflow-hidden opacity-0' : 'w-full sm:w-80 md:w-80 lg:w-80 opacity-100'
+      <aside className={`fixed right-0 z-50 backdrop-blur-md shadow-lg transition-all duration-500 ease-in-out ${
+        isCollapsed ? 'w-0 overflow-hidden opacity-0 translate-x-full' : 'w-full sm:w-80 md:w-80 lg:w-80 opacity-100 translate-x-0'
       }`} style={{ 
         top: '64px', // Account for TopNavbar height
         height: 'calc(100vh - 64px)', // Adjust height to account for TopNavbar
@@ -78,35 +84,42 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
         borderRadius: 'var(--radius) 0 0 var(--radius)',
         maxWidth: isCollapsed ? '0' : '320px',
         minWidth: isCollapsed ? '0' : '280px',
-        pointerEvents: isCollapsed ? 'none' : 'auto',
-        // Prevent flash by setting initial opacity
-        opacity: isCollapsed ? 0 : 1
+        pointerEvents: isCollapsed ? 'none' : 'auto'
       }}>
         <div className="h-full flex flex-col">
           {/* Header with collapse button */}
           <div className="flex items-center justify-between px-4 py-3 sm:py-4 min-h-[60px]">
             <h2 className="font-semibold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>Controls</h2>
             <div className="flex items-center gap-2">
-              <Button
-                onClick={() => setShowDisclaimer(!showDisclaimer)}
-                variant="ghost"
-                size="sm"
-                className="p-1.5"
-                title={project.type === 'portfolio' ? 'Personal Portfolio Info' : 'Visual Testing Disclaimer'}
-              >
-                <svg 
-                  className="w-4 h-4" 
-                  style={{ color: project.type === 'portfolio' ? '#3b82f6' : '#eab308' }}
-                  fill="currentColor" 
-                  viewBox="0 0 20 20"
+              <div className="flex items-center gap-1">
+                <Button
+                  onClick={() => setShowDisclaimer(!showDisclaimer)}
+                  variant="ghost"
+                  size="sm"
+                  className="p-1.5"
+                  title={project.type === 'portfolio' ? 'Personal Portfolio Info' : 'Visual Testing Disclaimer'}
                 >
-                  {project.type === 'portfolio' ? (
-                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                  ) : (
-                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                  )}
-                </svg>
-              </Button>
+                  <svg 
+                    className="w-4 h-4" 
+                    style={{ color: project.type === 'portfolio' ? '#3b82f6' : '#eab308' }}
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    {project.type === 'portfolio' ? (
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    ) : (
+                      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    )}
+                  </svg>
+                </Button>
+                {/* Accessibility indicator */}
+                <div 
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    isAccessible ? 'bg-green-500' : 'bg-red-500'
+                  }`}
+                  title={isAccessible ? 'Accessibility: Good (WCAG AA compliant)' : 'Accessibility: Needs improvement'}
+                />
+              </div>
               <Button
                 onClick={() => setShowHelp(true)}
                 variant="ghost"
@@ -241,15 +254,23 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
 
           {/* Tab Content */}
           <div className="flex-1 overflow-y-auto p-4">
-            {activeTab === 'theme' && (
-              <ThemePanel />
-            )}
-            {activeTab === 'presets' && (
-              <PresetsPanel />
-            )}
-            {activeTab === 'rubik' && (
-              <RubikPanel />
-            )}
+            <div className="transition-all duration-300 ease-in-out">
+              {activeTab === 'theme' && (
+                <div className="animate-fadeIn">
+                  <ThemePanel />
+                </div>
+              )}
+              {activeTab === 'presets' && (
+                <div className="animate-fadeIn">
+                  <PresetsPanel />
+                </div>
+              )}
+              {activeTab === 'rubik' && (
+                <div className="animate-fadeIn">
+                  <RubikPanel />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </aside>

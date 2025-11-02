@@ -41,6 +41,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ChooseAFeel inspired components */
@@ -49,6 +50,7 @@ body {
   border-top: 1px solid var(--color-border);
   box-shadow: var(--shadow-lg);
   backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card { 
@@ -56,7 +58,7 @@ body {
   border-radius: var(--radius); 
   border: calc(var(--use-borders) * 1px) solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
@@ -70,7 +72,7 @@ body {
   padding: 0.5rem 1rem;
   border: calc(var(--use-borders) * 1px) solid var(--color-primary);
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -420,6 +422,77 @@ body {
 
 .fade-in {
   animation: fadeIn 0.3s ease-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Page transition animations */
+@keyframes slideInFromRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(20px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0) scale(1); 
+  }
+}
+
+@keyframes slideOutToLeft {
+  from { 
+    opacity: 1; 
+    transform: translateX(0) scale(1); 
+  }
+  to { 
+    opacity: 0; 
+    transform: translateX(-20px) scale(0.95); 
+  }
+}
+
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.4s ease-out;
+}
+
+.animate-slideOutToLeft {
+  animation: slideOutToLeft 0.3s ease-in;
+}
+
+/* Color change animations */
+@keyframes colorPulse {
+  0% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+  100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes colorGlow {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 103, 80, 164), 0.4);
+  }
+  70% { 
+    box-shadow: 0 0 0 10px rgba(var(--color-primary-rgb, 103, 80, 164), 0);
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 103, 80, 164), 0);
+  }
+}
+
+.animate-colorPulse {
+  animation: colorPulse 0.3s ease-in-out;
+}
+
+.animate-colorGlow {
+  animation: colorGlow 0.6s ease-out;
 }
 
 /* Scrollbar styling */

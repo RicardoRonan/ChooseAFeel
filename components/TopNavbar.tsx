@@ -111,7 +111,10 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
   }
 
   function handleTemplateSelect(templateType: ProjectType) {
-    setType(templateType)
+    // Add a small delay to show the transition effect
+    setTimeout(() => {
+      setType(templateType)
+    }, 100)
   }
 
   return (

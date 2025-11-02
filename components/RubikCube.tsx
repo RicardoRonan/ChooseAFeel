@@ -16,8 +16,6 @@ interface RubikCubeProps {
   size?: number
   spacing?: number
   animationDuration?: number
-  onZoomIn?: () => void
-  onZoomOut?: () => void
 }
 
 interface Cubie {
@@ -29,9 +27,7 @@ export default function RubikCube({
   colors, 
   size = 1, 
   spacing = 0.1, 
-  animationDuration = 300,
-  onZoomIn,
-  onZoomOut
+  animationDuration = 300
 }: RubikCubeProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<THREE.Scene | null>(null)
@@ -47,79 +43,11 @@ export default function RubikCube({
   } | null>(null)
 
   const [isInitialized, setIsInitialized] = useState(false)
-  const [currentZoom, setCurrentZoom] = useState(1)
-  const [showZoomFeedback, setShowZoomFeedback] = useState(false)
   const isInitializingRef = useRef(false)
-
-  // Listen for zoom changes to keep state in sync
-  const handleZoomChange = () => {
-    if (controlsRef.current) {
-      const distance = controlsRef.current.getDistance()
-      const zoomRatio = distance / 20 // Normalize to 0-1 range
-      setCurrentZoom(zoomRatio)
-    }
-  }
 
   // Convert hex color to Three.js color
   const hexToColor = (hex: string) => {
     return new THREE.Color(hex)
-  }
-
-  // Zoom functions that mimic scroll zoom behavior
-  const handleZoomIn = () => {
-    if (controlsRef.current) {
-      // Use OrbitControls zoom methods to mimic scroll wheel behavior
-      const zoomSpeed = 0.1
-      const currentDistance = controlsRef.current.getDistance()
-      const newDistance = currentDistance * (1 - zoomSpeed)
-      
-      // Apply zoom limits similar to OrbitControls
-      const minDistance = 1.5
-      const maxDistance = 20
-      const clampedDistance = Math.max(minDistance, Math.min(maxDistance, newDistance))
-      
-      // Update the zoom by adjusting the target distance
-      controlsRef.current.dollyIn(zoomSpeed)
-      controlsRef.current.update()
-      
-      // Update our zoom state for feedback
-      const zoomRatio = clampedDistance / (maxDistance - minDistance + minDistance)
-      setCurrentZoom(zoomRatio)
-      
-      // Show feedback
-      setShowZoomFeedback(true)
-      setTimeout(() => setShowZoomFeedback(false), 1000)
-      
-      onZoomIn?.()
-    }
-  }
-
-  const handleZoomOut = () => {
-    if (controlsRef.current) {
-      // Use OrbitControls zoom methods to mimic scroll wheel behavior
-      const zoomSpeed = 0.1
-      const currentDistance = controlsRef.current.getDistance()
-      const newDistance = currentDistance * (1 + zoomSpeed)
-      
-      // Apply zoom limits similar to OrbitControls
-      const minDistance = 1.5
-      const maxDistance = 20
-      const clampedDistance = Math.max(minDistance, Math.min(maxDistance, newDistance))
-      
-      // Update the zoom by adjusting the target distance
-      controlsRef.current.dollyOut(zoomSpeed)
-      controlsRef.current.update()
-      
-      // Update our zoom state for feedback
-      const zoomRatio = clampedDistance / (maxDistance - minDistance + minDistance)
-      setCurrentZoom(zoomRatio)
-      
-      // Show feedback
-      setShowZoomFeedback(true)
-      setTimeout(() => setShowZoomFeedback(false), 1000)
-      
-      onZoomOut?.()
-    }
   }
 
   // Build a single cubie
@@ -292,8 +220,6 @@ export default function RubikCube({
     }
     animate()
 
-    // Add event listener for zoom changes
-    controls.addEventListener('change', handleZoomChange)
 
     setIsInitialized(true)
     isInitializingRef.current = false
@@ -340,10 +266,6 @@ export default function RubikCube({
       if (rendererRef.current && container) {
         container.removeChild(rendererRef.current.domElement)
       }
-      // Clean up controls event listener
-      if (controlsRef.current) {
-        controlsRef.current.removeEventListener('change', handleZoomChange)
-      }
     }
   }, [initializeScene])
 
@@ -386,65 +308,10 @@ export default function RubikCube({
   }, [])
 
   return (
-    <div className="relative w-full h-full" style={{ minHeight: '400px' }}>
-      <div 
-        ref={containerRef} 
-        className="w-full h-full"
-      />
-      
-      {/* Zoom buttons - visible on mobile and tablet */}
-      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col gap-1 sm:gap-2 lg:hidden z-10">
-        <button
-          onClick={handleZoomIn}
-          className="w-10 h-10 sm:w-12 sm:h-12 bg-white/95 hover:bg-white border border-gray-200 rounded-full shadow-lg flex items-center justify-center text-lg sm:text-xl font-bold text-gray-800 hover:text-gray-900 transition-all duration-200 active:scale-95 backdrop-blur-sm touch-manipulation"
-          style={{ 
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            borderColor: 'var(--color-border)',
-            color: 'var(--color-text)',
-            minHeight: '40px',
-            minWidth: '40px'
-          }}
-          aria-label="Zoom in"
-        >
-          +
-        </button>
-        <button
-          onClick={handleZoomOut}
-          className="w-10 h-10 sm:w-12 sm:h-12 bg-white/95 hover:bg-white border border-gray-200 rounded-full shadow-lg flex items-center justify-center text-lg sm:text-xl font-bold text-gray-800 hover:text-gray-900 transition-all duration-200 active:scale-95 backdrop-blur-sm touch-manipulation"
-          style={{ 
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            borderColor: 'var(--color-border)',
-            color: 'var(--color-text)',
-            minHeight: '40px',
-            minWidth: '40px'
-          }}
-          aria-label="Zoom out"
-        >
-          −
-        </button>
-      </div>
-
-      {/* Zoom feedback */}
-      {showZoomFeedback && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:hidden z-20">
-          <div 
-            className="px-4 py-2 rounded-full shadow-lg backdrop-blur-sm"
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              borderColor: 'var(--color-border)',
-              color: 'var(--color-text)',
-              border: '1px solid var(--color-border)'
-            }}
-          >
-            <span className="text-sm font-medium">
-              {controlsRef.current ? 
-                `Zoom: ${Math.round((controlsRef.current.getDistance() / 20) * 100)}%` : 
-                'Zoom'
-              }
-            </span>
-          </div>
-        </div>
-      )}
-    </div>
+    <div 
+      ref={containerRef} 
+      className="w-full h-full"
+      style={{ minHeight: '400px' }}
+    />
   )
 }

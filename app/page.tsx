@@ -113,14 +113,14 @@ export default function Page() {
   }, [sidebarCollapsed])
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div className="min-h-screen transition-all duration-500 ease-in-out" style={{ backgroundColor: 'var(--color-bg)' }}>
       {/* Top navbar - fixed at top */}
       <TopNavbar sidebarCollapsed={sidebarCollapsed} />
       
       {/* Main preview area - with responsive padding */}
       <main 
         ref={mainRef}
-        className={`pt-16 sm:pt-20 min-h-screen transition-all duration-300 ${
+        className={`pt-16 sm:pt-20 min-h-screen transition-all duration-500 ease-in-out ${
           sidebarCollapsed ? 'pr-0' : 'pr-0 lg:pr-80'
         }`}
       >

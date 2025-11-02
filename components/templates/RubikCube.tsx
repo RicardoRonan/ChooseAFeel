@@ -55,8 +55,6 @@ export default function RubikCubeTemplate() {
             size={1.2}
             spacing={0.15}
             animationDuration={400}
-            onZoomIn={() => console.log('Zoom in')}
-            onZoomOut={() => console.log('Zoom out')}
           />
         </div>
       </div>
