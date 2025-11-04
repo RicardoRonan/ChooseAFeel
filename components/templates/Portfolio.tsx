@@ -17,30 +17,29 @@ export default function Portfolio() {
       <section id={SECTIONS.PORTFOLIO.HERO} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 text-center" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-3xl mx-auto">
           <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-6 flex items-center justify-center" style={{ backgroundColor: 'var(--color-primary)', borderRadius: '50%' }}>
-            <span className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: 'var(--color-primary-contrast)' }}>JD</span>
+            <span className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: 'var(--color-primary-contrast)' }}>CAF</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>
-            John Designer
+            ChooseAFeel
           </h1>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            Creative Designer & UI/UX Specialist
+            Color Palette Customization Tool
           </p>
           <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-            I create beautiful, functional designs that solve real problems and delight users. 
-            With over 5 years of experience, I help brands tell their story through thoughtful design.
+            Open the side panel on the right to change colors and fonts. See your changes update instantly on this website. Everything is free and easy to use.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <button 
               className="button px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}
             >
-              View My Work
+              Explore Templates
             </button>
             <button 
               className="button-accent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
-              onClick={() => scrollToSection(SECTIONS.PORTFOLIO.CONTACT)}
+              onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}
             >
-              Get In Touch
+              Get Started
             </button>
           </div>
         </div>
@@ -49,25 +48,25 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id={SECTIONS.PORTFOLIO.SKILLS} className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Skills & Expertise</h2>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>What I bring to every project</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ChooseAFeel Features</h2>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Everything you need to create perfect color palettes</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {[
             {
-              title: "UI/UX Design",
-              description: "Creating intuitive and beautiful user interfaces that users love to interact with.",
-              skills: ["Figma", "Sketch", "Adobe XD", "Prototyping", "User Research"]
+              title: "Color Customization",
+              description: "Use the side panel to change colors instantly. Click any color to pick a new one or choose from preset palettes.",
+              skills: ["Color Picker", "Presets", "Randomize", "Live Preview", "Export"]
             },
             {
-              title: "Brand Identity",
-              description: "Developing cohesive brand identities that resonate with target audiences.",
-              skills: ["Logo Design", "Brand Guidelines", "Visual Identity", "Typography", "Color Theory"]
+              title: "Template Library",
+              description: "Switch between different website styles using the side panel. Test your colors on different templates.",
+              skills: ["Website Landing", "Dashboard", "Blog", "Products", "Portfolio"]
             },
             {
-              title: "Web Design",
-              description: "Designing responsive websites that work seamlessly across all devices.",
-              skills: ["Responsive Design", "HTML/CSS", "WordPress", "E-commerce", "Landing Pages"]
+              title: "Export & Integration",
+              description: "After customizing with the side panel, click export at the top to download as PNG or ZIP files.",
+              skills: ["PNG Export", "ZIP Export", "CSS Copy", "Accessibility", "WCAG AA"]
             }
           ].map((skill, index) => (
             <div key={index} className="surface-card p-4 sm:p-6 text-center">
@@ -93,38 +92,38 @@ export default function Portfolio() {
       {/* Featured Projects */}
       <section id={SECTIONS.PORTFOLIO.PROJECTS} className="py-12 sm:py-16 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Featured Projects</h2>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>A selection of my recent work</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ChooseAFeel Features</h2>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Explore what makes our color palette tool powerful</p>
         </div>
         <div className="equal-height-cards grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {[
             {
-              title: "E-commerce Platform Redesign",
-              category: "UI/UX Design",
-              description: "Complete redesign of a modern e-commerce platform focusing on user experience and conversion optimization.",
-              image: "🛒",
-              tags: ["Figma", "User Research", "Prototyping", "E-commerce"]
+              title: "Live Side Panel",
+              category: "Side Panel",
+              description: "The side panel on the right lets you change colors, fonts, borders, and more. Watch this website update instantly.",
+              image: "🎛️",
+              tags: ["Live Preview", "Color Picker", "Theme Controls", "Accessibility"]
             },
             {
-              title: "Mobile Banking App",
-              category: "Mobile Design",
-              description: "Intuitive mobile banking application with focus on security and ease of use for all age groups.",
-              image: "📱",
-              tags: ["Mobile", "Fintech", "Accessibility", "iOS/Android"]
+              title: "Preset Color Palettes",
+              category: "Presets",
+              description: "In the side panel, click the Presets tab to choose ready-made color palettes or create your own.",
+              image: "🎨",
+              tags: ["Presets", "Color Theory", "Harmony", "Randomize"]
             },
             {
-              title: "Brand Identity for Startup",
-              category: "Brand Design",
-              description: "Complete brand identity including logo, guidelines, and marketing materials for a tech startup.",
-              image: "🚀",
-              tags: ["Branding", "Logo Design", "Print Design", "Guidelines"]
+              title: "Multiple Templates",
+              category: "Templates",
+              description: "Use the side panel to switch between different website styles. Test your colors on landing pages, dashboards, and blogs.",
+              image: "📄",
+              tags: ["Templates", "Website", "Dashboard", "Blog"]
             },
             {
-              title: "SaaS Dashboard Interface",
-              category: "Web Design",
-              description: "Complex dashboard design for a SaaS platform with data visualization and user management features.",
-              image: "📊",
-              tags: ["Dashboard", "Data Viz", "SaaS", "Web App"]
+              title: "Export Options",
+              category: "Export",
+              description: "After customizing with the side panel, click export buttons at the top to download as PNG images or ZIP files with code.",
+              image: "📤",
+              tags: ["PNG Export", "ZIP Export", "CSS Copy", "Workflow"]
             }
           ].map((project, index) => (
             <div key={index} className="surface-card p-4 sm:p-6 group">
@@ -148,7 +147,7 @@ export default function Portfolio() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
                 <button 
                   className="button px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium w-full sm:w-auto"
-                  onClick={() => scrollToSection(SECTIONS.PORTFOLIO.HERO)}
+                  onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}
                 >
                   View Project
                 </button>
@@ -167,28 +166,28 @@ export default function Portfolio() {
       {/* Testimonials */}
       <section id={SECTIONS.PORTFOLIO.TESTIMONIALS} className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>What Clients Say</h2>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Feedback from satisfied clients</p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>What Users Say</h2>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Feedback from designers using ChooseAFeel</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {[
             {
-              quote: "John transformed my brand identity completely. The new design perfectly captures my vision and has significantly improved my market presence.",
-              author: "Sarah Johnson",
-              role: "CEO, TechStart Inc.",
-              avatar: "SJ"
+              quote: "The side panel on the right is so easy to use! I can test colors instantly and see them update on different templates. This saved me hours.",
+              author: "Sarah Martinez",
+              role: "UI Designer",
+              avatar: "SM"
             },
             {
-              quote: "Working with John was a game-changer for my product. His attention to detail and user-centered approach resulted in a 40% increase in user engagement.",
+              quote: "The live preview is amazing! I change colors in the side panel and see them update instantly. The accessibility checker helps me pick better colors.",
               author: "Mike Chen",
-              role: "Product Manager, InnovateLab",
+              role: "Brand Designer",
               avatar: "MC"
             },
             {
-              quote: "John's design expertise and collaborative approach made the entire process smooth and enjoyable. The final result exceeded my expectations.",
-              author: "Emily Rodriguez",
-              role: "Marketing Director, GrowthCo",
-              avatar: "ER"
+              quote: "After customizing with the side panel, I can export as PNG or ZIP. ChooseAFeel has become essential to my design process.",
+              author: "Emily Davis",
+              role: "Frontend Developer",
+              avatar: "ED"
             }
           ].map((testimonial, index) => (
             <div key={index} className="surface-card p-4 sm:p-6">
@@ -215,48 +214,22 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id={SECTIONS.PORTFOLIO.CONTACT} className="py-12 sm:py-16 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Let&apos;s Work Together</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Ready to Get Started?</h2>
           <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            Have a project in mind? I&apos;d love to hear about it. Let&apos;s discuss how I can bring your ideas to life.
+            Start creating beautiful color palettes with ChooseAFeel. Open the side panel on the right to change colors, fonts, and styling instantly.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
             <button 
               className="button px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
-              onClick={() => {
-                // Simulate project inquiry form
-                const contactModal = document.createElement('div');
-                contactModal.innerHTML = `
-                  <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
-                    <div style="background: var(--color-bg); padding: 1.5rem; border-radius: var(--radius); max-width: 500px; width: 90%;">
-                      <h3 style="color: var(--color-text); margin-bottom: 1rem; font-size: 1.125rem;">Start a Project</h3>
-                      <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.875rem;">Let's discuss your project requirements and how I can help bring your vision to life.</p>
-                      <div style="display: flex; gap: 1rem; flex-direction: column;">
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: var(--color-primary); color: var(--color-primary-contrast); padding: 0.5rem 1rem; border: none; border-radius: var(--radius); cursor: pointer;">Contact Me</button>
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: var(--color-surface); color: var(--color-text); padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer;">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                `;
-                document.body.appendChild(contactModal);
-              }}
+              onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}
             >
-              Start a Project
+              Learn How to Use
             </button>
             <button 
               className="button-secondary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
-              onClick={() => {
-                // Simulate resume download
-                const data = "John Designer - Creative Designer & UI/UX Specialist\n\nExperience:\n- 5+ years in UI/UX Design\n- Brand Identity Development\n- Web Design & Development\n\nSkills:\n- Figma, Sketch, Adobe XD\n- HTML/CSS, JavaScript\n- User Research & Testing\n\nContact: john@designer.com";
-                const blob = new Blob([data], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'john-designer-resume.txt';
-                a.click();
-                URL.revokeObjectURL(url);
-              }}
+              onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}
             >
-              Download Resume
+              Explore Templates
             </button>
           </div>
           <div className="flex items-center justify-center gap-4 sm:gap-6">
@@ -307,20 +280,20 @@ export default function Portfolio() {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Tools</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}>Documentation</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Figma Integration</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.CONTACT)}>VS Code Extension</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}>API Access</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Templates</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.CONTACT)}>Color Games</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}>Getting Started</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Feature Overview</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Side Panel Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Export Tutorial</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Template Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}>Accessibility Guide</button></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Connect</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.CONTACT)}>Get Support</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.TESTIMONIALS)}>Community</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>GitHub</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}>Help & Support</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.TESTIMONIALS)}>User Testimonials</button></li>
+                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PORTFOLIO.PROJECTS)}>Feature Guide</button></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">
@@ -333,12 +306,12 @@ export default function Portfolio() {
                 onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
                 onClick={() => scrollToSection(SECTIONS.PORTFOLIO.SKILLS)}
               >
-                Share with friends
+                Get Started
               </button>
             </div>
           </div>
           <div className="border-t mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 text-center" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
-            <p className="text-xs sm:text-sm">&copy; 2024 ChooseAFeel. Made with ❤️ for designers everywhere.</p>
+            <p className="text-xs sm:text-sm">&copy; 2025 TheDevRicardo. All rights reserved.</p>
           </div>
         </div>
       </footer>

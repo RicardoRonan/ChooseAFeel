@@ -17,14 +17,14 @@ export default function Products() {
       <header className="py-8 sm:py-12 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>Product Catalog</h1>
-            <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Discover my collection of premium design tools and resources</p>
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ChooseAFeel Resources</h1>
+            <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Tools and guides for using the side panel to customize colors</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <div className="relative">
               <input 
                 type="text" 
-                placeholder="Search products..."
+                placeholder="Search resources..."
                 className="pl-10 pr-4 py-2 rounded-md text-sm focus:outline-none transition-colors w-full sm:w-64"
                 style={{ 
                   border: '1px solid var(--color-border)',
@@ -50,31 +50,9 @@ export default function Products() {
             </div>
             <button 
               className="button-accent px-4 py-2 text-sm font-medium w-full sm:w-auto"
-              onClick={() => {
-                // Simulate cart functionality
-                const cartModal = document.createElement('div');
-                cartModal.innerHTML = `
-                  <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;">
-                    <div style="background: var(--color-bg); padding: 1.5rem; border-radius: var(--radius); max-width: 500px; width: 90%;">
-                      <h3 style="color: var(--color-text); margin-bottom: 1rem; font-size: 1.125rem;">Shopping Cart (3 items)</h3>
-                      <div style="color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.875rem;">
-                        <p>• Modern UI Kit Pro - $89</p>
-                        <p>• Icon Collection 2024 - $45</p>
-                        <p>• Typography Bundle - $34</p>
-                        <hr style="margin: 1rem 0; border-color: var(--color-border);">
-                        <p style="font-weight: bold; color: var(--color-text);">Total: $168</p>
-                      </div>
-                      <div style="display: flex; gap: 1rem; flex-direction: column;">
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: var(--color-primary); color: var(--color-primary-contrast); padding: 0.5rem 1rem; border: none; border-radius: var(--radius); cursor: pointer;">Checkout</button>
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: var(--color-surface); color: var(--color-text); padding: 0.5rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius); cursor: pointer;">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                `;
-                document.body.appendChild(cartModal);
-              }}
+              onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}
             >
-              View Cart (3)
+              Browse Resources
             </button>
           </div>
         </div>
@@ -86,7 +64,7 @@ export default function Products() {
           <div className="surface-card p-4 sm:p-6">
             <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Categories</h3>
             <div className="space-y-1 sm:space-y-2">
-              {['All Products', 'UI Kits', 'Icons', 'Templates', 'Fonts', 'Graphics', 'Photos'].map((category, index) => (
+              {['All Resources', 'Color Palettes', 'Templates', 'Export Tools', 'Guides', 'Presets', 'Tutorials'].map((category, index) => (
                 <button 
                   key={index}
                   className={`w-full text-left px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors ${index === 0 ? 'surface-primary' : ''}`}
@@ -212,55 +190,55 @@ export default function Products() {
           <div className="equal-height-cards grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
-                name: "Modern UI Kit Pro",
-                price: "$89",
-                originalPrice: "$129",
-                image: "🎨",
+                name: "Side Panel Guide",
+                price: "Free",
+                originalPrice: null,
+                image: "📖",
                 rating: 4.9,
                 reviews: 234,
                 badge: "Best Seller"
               },
               {
-                name: "Icon Collection 2024",
-                price: "$45",
+                name: "Preset Palette Collection",
+                price: "Free",
                 originalPrice: null,
-                image: "🔗",
+                image: "🎨",
                 rating: 4.8,
                 reviews: 156,
                 badge: "New"
               },
               {
-                name: "Dashboard Templates",
-                price: "$67",
-                originalPrice: "$89",
-                image: "📊",
+                name: "Export Tutorial Pack",
+                price: "Free",
+                originalPrice: null,
+                image: "📤",
                 rating: 4.7,
                 reviews: 89,
                 badge: null
               },
               {
-                name: "Typography Bundle",
-                price: "$34",
+                name: "Accessibility Guide",
+                price: "Free",
                 originalPrice: null,
-                image: "📝",
+                image: "♿",
                 rating: 4.9,
                 reviews: 312,
                 badge: "Popular"
               },
               {
-                name: "Mobile App Kit",
-                price: "$99",
-                originalPrice: "$149",
-                image: "📱",
+                name: "Template Showcase",
+                price: "Free",
+                originalPrice: null,
+                image: "📄",
                 rating: 4.6,
                 reviews: 78,
                 badge: null
               },
               {
-                name: "Illustration Pack",
-                price: "$56",
+                name: "Color Theory Basics",
+                price: "Free",
                 originalPrice: null,
-                image: "🎭",
+                image: "🌈",
                 rating: 4.8,
                 reviews: 145,
                 badge: "Featured"
@@ -321,16 +299,10 @@ export default function Products() {
                   <button 
                     className="button px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium w-full sm:w-auto"
                     onClick={() => {
-                      // Simulate adding to cart
-                      const cartButton = document.querySelector('button:contains("View Cart")') as HTMLElement;
-                      if (cartButton) {
-                        const currentCount = parseInt(cartButton.textContent?.match(/\d+/)?.[0] || '0');
-                        cartButton.textContent = `View Cart (${currentCount + 1})`;
-                      }
-                      alert(`Added "${product.name}" to cart!`);
+                      alert(`Opening "${product.name}" guide. Use the side panel on the right to explore these features!`);
                     }}
                   >
-                    Add to Cart
+                    View Guide
                   </button>
                 </div>
               </div>
@@ -341,29 +313,9 @@ export default function Products() {
           <div className="text-center mt-8 sm:mt-12">
             <button 
               className="button-secondary px-6 sm:px-8 py-2 sm:py-3 font-medium text-sm sm:text-base"
-              onClick={() => {
-                // Simulate loading more products
-                const productGrid = document.querySelector('#products-grid');
-                if (productGrid) {
-                  const newProduct = document.createElement('div');
-                  newProduct.className = 'surface-card p-4 sm:p-6 group';
-                  newProduct.innerHTML = `
-                    <div class="relative mb-3 sm:mb-4">
-                      <div class="w-full h-32 sm:h-40 lg:h-48 flex items-center justify-center text-4xl sm:text-5xl lg:text-6xl" style="background-color: var(--color-surface); border-radius: var(--radius);">🎨</div>
-                    </div>
-                    <div class="mb-2 sm:mb-3">
-                      <h3 class="font-semibold mb-1 text-sm sm:text-base" style="color: var(--color-text);">New Product</h3>
-                    </div>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
-                      <span class="text-base sm:text-lg font-bold" style="color: var(--color-text);">$49</span>
-                      <button class="button px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium w-full sm:w-auto">Add to Cart</button>
-                    </div>
-                  `;
-                  productGrid.appendChild(newProduct);
-                }
-              }}
+              onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}
             >
-              Load More Products
+              Explore All Resources
             </button>
           </div>
         </div>
@@ -372,7 +324,7 @@ export default function Products() {
       {/* Newsletter */}
       <div className="surface-card p-4 sm:p-6 lg:p-8 text-center mt-8 sm:mt-12">
         <h3 className="text-lg sm:text-xl font-semibold mb-3" style={{ color: 'var(--color-text)' }}>Stay Updated</h3>
-        <p className="mb-4 sm:mb-6 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Get notified about new products, exclusive deals, and design inspiration.</p>
+        <p className="mb-4 sm:mb-6 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Get notified about new ChooseAFeel features, tutorials, and design tips.</p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input 
             type="email" 
@@ -429,20 +381,20 @@ export default function Products() {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Tools</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Documentation</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Figma Integration</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>VS Code Extension</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>API Access</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Templates</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Color Games</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Getting Started</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Resource Categories</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Tutorials</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Export Guides</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Template Guides</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Preset Palettes</button></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Connect</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Get Support</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Community</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>GitHub</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>Help & Support</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.GRID)}>Resource Library</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}>FAQ</button></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">
@@ -455,12 +407,12 @@ export default function Products() {
                 onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
                 onClick={() => scrollToSection(SECTIONS.PRODUCTS.FILTERS)}
               >
-                Share with friends
+                Learn More
               </button>
             </div>
           </div>
           <div className="border-t mt-8 sm:mt-12 pt-6 sm:pt-8 text-center" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
-            <p className="text-sm sm:text-base">&copy; 2024 ChooseAFeel. Made with ❤️ for designers everywhere.</p>
+            <p className="text-sm sm:text-base">&copy; 2025 TheDevRicardo. All rights reserved.</p>
           </div>
         </div>
       </footer>

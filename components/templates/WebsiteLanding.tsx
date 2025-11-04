@@ -19,14 +19,14 @@ export default function WebsiteLanding() {
           <span style={{ color: 'var(--color-primary)' }}>A</span>
           <span style={{ color: 'var(--color-accent)' }}>Feel</span>
         </h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>
           Design Your <span style={{ color: 'var(--color-accent)' }}>Perfect</span><br />
           Brand <span style={{ color: 'var(--color-accent)' }}>Palette</span><br />
-          With Our <span style={{ color: 'var(--color-primary)' }}>Control Panel</span>
+          With Our <span style={{ color: 'var(--color-primary)' }}>Side Panel</span>
         </h2>
         <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-3xl mx-auto" style={{ color: 'var(--color-text)' }}>
-          Use our intuitive control panel to customize colors, fonts, and styling in real-time.<br />
-          See your changes instantly applied to professional website templates.
+          Open the side panel on the right to change colors, fonts, and styling.<br />
+          See your changes update instantly on this website.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <button 
@@ -37,18 +37,18 @@ export default function WebsiteLanding() {
           </button>
           <button 
             className="button-accent px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
-            onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.WHY_CHOOSE)}
+            onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.HOW_IT_WORKS)}
           >
             Learn More
           </button>
         </div>
-        <p className="text-xs sm:text-sm mt-4 sm:mt-6" style={{ color: 'var(--color-text-secondary)' }}>Open the control panel on the right to start customizing</p>
+        <p className="text-xs sm:text-sm mt-4 sm:mt-6" style={{ color: 'var(--color-text-secondary)' }}>Open the side panel on the right to start customizing</p>
       </section>
 
       {/* Why ChooseAFeel Section */}
       <section id={SECTIONS.WEBSITE_LANDING.WHY_CHOOSE} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12" style={{ color: 'var(--color-text)' }}>Why Choose Our Control Panel?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12" style={{ color: 'var(--color-text)' }}>Why Use Our Side Panel?</h2>
           <div className="equal-height-cards grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="surface-card p-4 sm:p-6 text-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4 surface-primary" style={{ borderRadius: 'var(--radius)' }}>
@@ -56,8 +56,8 @@ export default function WebsiteLanding() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Real-Time Control Panel</h3>
-              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>Our intuitive control panel lets you adjust colors, fonts, and styling instantly. See changes applied in real-time as you design.</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Live Side Panel</h3>
+              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>Use the side panel on the right to change colors and fonts. Watch this website update instantly as you make changes.</p>
               <div className="mt-auto">
                 <span className="accent-badge text-xs sm:text-sm">⚡ Live Preview</span>
               </div>
@@ -68,8 +68,8 @@ export default function WebsiteLanding() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Professional Templates</h3>
-              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>Test your color palettes on real website templates including landing pages, dashboards, blogs, and portfolios.</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Multiple Templates</h3>
+              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>Switch between different website styles using the side panel. Test your colors on landing pages, dashboards, blogs, and more.</p>
               <div className="mt-auto">
                 <span className="accent-badge text-xs sm:text-sm">🎨 Multiple Templates</span>
               </div>
@@ -80,8 +80,8 @@ export default function WebsiteLanding() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Advanced Controls</h3>
-              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>Fine-tune every aspect with our comprehensive control panel: colors, typography, spacing, borders, and accessibility checks.</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--color-text)' }}>Easy Controls</h3>
+              <p className="text-sm sm:text-base mb-4" style={{ color: 'var(--color-text-secondary)' }}>The side panel lets you change colors, fonts, borders, and spacing. Everything is easy to find and use.</p>
               <div className="mt-auto">
                 <span className="accent-badge text-xs sm:text-sm">⚙️ Full Control</span>
               </div>
@@ -117,22 +117,22 @@ export default function WebsiteLanding() {
       {/* How Does it Work Section */}
       <section id={SECTIONS.WEBSITE_LANDING.HOW_IT_WORKS} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>How Our Control Panel Works</h2>
-          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Use our intuitive control panel to design your perfect color scheme in 4 simple steps.</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>How Our Side Panel Works</h2>
+          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Use the side panel on the right to customize your colors in 4 easy steps.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 text-white flex items-center justify-center font-bold text-xs sm:text-sm surface-primary flex-shrink-0">1</div>
                 <div>
-                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Open the Control Panel</h3>
-                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Click the control panel on the right to access all customization options. Choose from Theme or Presets tabs.</p>
+                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Open the Side Panel</h3>
+                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Click the arrow button on the right side to open the side panel. You'll see two tabs: Theme and Presets.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 text-white flex items-center justify-center font-bold text-xs sm:text-sm surface-primary flex-shrink-0">2</div>
                 <div>
-                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Customize Colors & Typography</h3>
-                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Use color pickers to adjust primary, secondary, accent colors, and backgrounds. Select fonts and adjust border radius.</p>
+                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Change Colors & Fonts</h3>
+                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>In the side panel, click any color to change it. You can also pick fonts and adjust border corners.</p>
                 </div>
               </div>
             </div>
@@ -140,15 +140,15 @@ export default function WebsiteLanding() {
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 text-white flex items-center justify-center font-bold text-xs sm:text-sm surface-primary flex-shrink-0">3</div>
                 <div>
-                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Watch Live Preview</h3>
-                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>See your changes applied instantly to the website template. Toggle between light/dark modes and test accessibility.</p>
+                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>See Changes Instantly</h3>
+                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Watch this website update as you change colors in the side panel. Switch between light and dark mode to test your colors.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 text-white flex items-center justify-center font-bold text-xs sm:text-sm surface-primary flex-shrink-0">4</div>
                 <div>
-                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Export Your Design</h3>
-                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Use the export buttons in the top navigation to download your design as PNG images or ZIP files for development.</p>
+                  <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Save Your Design</h3>
+                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Click the export buttons at the top to download this website as a PNG image or ZIP file with all the code.</p>
                 </div>
               </div>
             </div>
@@ -257,10 +257,10 @@ export default function WebsiteLanding() {
       <section id={SECTIONS.WEBSITE_LANDING.TESTIMONIALS} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>What Users Say</h2>
-          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Hear from designers who love our control panel and color tool.</p>
+          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Hear from designers who love using the side panel to customize colors.</p>
           <div className="equal-height-cards grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             <div className="surface-elevated p-4 sm:p-6">
-              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The control panel is incredibly intuitive! I can adjust colors and see changes instantly. This saved me hours of design work.&quot;</p>
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The side panel on the right is so easy! I change colors and see them update instantly. This saved me hours of work.&quot;</p>
               <div className="flex items-center gap-2 sm:gap-3 mt-auto">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 avatar-blue flex items-center justify-center surface-card flex-shrink-0">
                   <span className="font-semibold text-xs sm:text-sm">SM</span>
@@ -272,7 +272,7 @@ export default function WebsiteLanding() {
               </div>
             </div>
             <div className="surface-elevated p-4 sm:p-6">
-              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The live preview feature is amazing! I can test my color palettes on real website templates and see exactly how they&apos;ll look. Game changer!&quot;</p>
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The live preview is amazing! I change colors in the side panel and see them update on different templates instantly. Game changer!&quot;</p>
               <div className="flex items-center gap-2 sm:gap-3 mt-auto">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 avatar-green flex items-center justify-center surface-card flex-shrink-0">
                   <span className="font-semibold text-xs sm:text-sm">AJ</span>
@@ -284,7 +284,7 @@ export default function WebsiteLanding() {
               </div>
             </div>
             <div className="surface-elevated p-4 sm:p-6">
-              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The control panel makes it so easy to experiment with different color combinations. The export features are incredible too - I can get my designs in any format I need.&quot;</p>
+              <p className="mb-3 sm:mb-4 text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>&quot;The side panel makes it easy to try different colors. After customizing, I can export as PNG or ZIP. Perfect for my workflow!&quot;</p>
               <div className="flex items-center gap-2 sm:gap-3 mt-auto">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 avatar-purple flex items-center justify-center surface-card flex-shrink-0">
                   <span className="font-semibold text-xs sm:text-sm">MC</span>
@@ -303,31 +303,31 @@ export default function WebsiteLanding() {
       <section id={SECTIONS.WEBSITE_LANDING.FAQ} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ borderRadius: 'var(--radius)' }}>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>Frequently Asked Questions</h2>
-          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Everything you need to know about our control panel and color tool.</p>
+          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Everything you need to know about the side panel and how to use it.</p>
           <div className="space-y-3 sm:space-y-4">
             <div className="surface-card p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>How do I access the control panel?</h3>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>The control panel is located on the right side of the screen. Click the arrow button to open it, then use the Theme and Presets tabs to customize your design.</p>
+              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>How do I open the side panel?</h3>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Look for the arrow button on the right side of your screen. Click it to open the side panel. Then use the Theme or Presets tabs to change colors and fonts.</p>
             </div>
             <div className="surface-card p-4 sm:p-6">
               <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>Does the tool check color accessibility?</h3>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Yes! My built-in accessibility checker ensures your color combinations meet WCAG standards for optimal readability and inclusivity.</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Yes! The side panel checks if your colors are easy to read. It makes sure your color combinations meet accessibility standards.</p>
             </div>
             <div className="surface-card p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>What can I customize in the control panel?</h3>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>The control panel lets you adjust colors (primary, secondary, accent, backgrounds), typography, border radius, toggle borders, switch between light/dark modes, and choose from preset color palettes.</p>
+              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>What can I change in the side panel?</h3>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>The side panel lets you change all colors, pick fonts, adjust border corners, turn borders on/off, switch between light and dark mode, and choose from ready-made color palettes.</p>
             </div>
             <div className="surface-card p-4 sm:p-6">
               <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>How does the live preview work?</h3>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>As you make changes in the control panel, you&apos;ll see them applied instantly to the website template. This gives you a real-time preview of how your design choices will look in practice.</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>When you change colors in the side panel, this website updates right away. You can see exactly how your colors look without refreshing the page.</p>
             </div>
             <div className="surface-card p-4 sm:p-6">
               <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>Are there any usage restrictions?</h3>
               <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>No restrictions at all! Use your color palettes freely for any commercial or personal projects without limitations.</p>
             </div>
             <div className="surface-card p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>How do I get help with the control panel?</h3>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Click the help button (?) in the control panel header to see a detailed guide of all available controls and features. You can also use the randomize button for inspiration.</p>
+              <h3 className="font-semibold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>How do I get help with the side panel?</h3>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Click the help button (?) at the top of the side panel to see a guide. Or click the randomize button to get color inspiration instantly.</p>
             </div>
           </div>
         </div>
@@ -336,12 +336,12 @@ export default function WebsiteLanding() {
       {/* Featured Articles Section */}
       <section id={SECTIONS.WEBSITE_LANDING.RESOURCES} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>Control Panel Resources</h2>
-          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Learn how to master our control panel and create amazing designs.</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 lg:mb-12" style={{ color: 'var(--color-text)' }}>Side Panel Resources</h2>
+          <p className="text-center mb-8 sm:mb-10 lg:mb-12 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Learn how to use the side panel on the right to create amazing designs.</p>
           <div className="equal-height-cards grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             <div className="surface-elevated p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Control Panel Master Guide</h3>
-              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>Learn how to use every feature in our control panel, from color customization to typography and accessibility checks.</p>
+              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Side Panel Guide</h3>
+              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>Learn how to use the side panel on the right. Change colors, pick fonts, and check accessibility - all in one place.</p>
               <button 
                 className="text-xs sm:text-sm font-medium transition-colors icon-primary mt-auto" 
                 onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
@@ -352,8 +352,8 @@ export default function WebsiteLanding() {
               </button>
             </div>
             <div className="surface-elevated p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Live Preview Best Practices</h3>
-              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>Discover how to effectively use our live preview feature to test color combinations and make confident design decisions.</p>
+              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Live Preview Tips</h3>
+              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>Use the side panel to test colors. Watch this website update as you change colors to see what works best.</p>
               <button 
                 className="text-xs sm:text-sm font-medium transition-colors icon-primary mt-auto" 
                 onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
@@ -364,8 +364,8 @@ export default function WebsiteLanding() {
               </button>
             </div>
             <div className="surface-elevated p-4 sm:p-6">
-              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Export & Integration Guide</h3>
-              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>Learn how to export your designs and integrate them into your development workflow using our PNG and ZIP export features.</p>
+              <h3 className="font-semibold mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Export Guide</h3>
+              <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)' }}>After customizing with the side panel, click the export buttons at the top to download your design as PNG or ZIP.</p>
               <button 
                 className="text-xs sm:text-sm font-medium transition-colors icon-primary mt-auto" 
                 onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
@@ -383,7 +383,7 @@ export default function WebsiteLanding() {
       <section id={SECTIONS.WEBSITE_LANDING.CTA} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ borderRadius: 'var(--radius)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Ready to Create Something Amazing?</h2>
-          <p className="mb-6 sm:mb-8 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Join thousands of designers who trust my tool for their color palette needs.</p>
+          <p className="mb-6 sm:mb-8 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Open the side panel on the right to start customizing. Join thousands of designers creating perfect color palettes.</p>
           <button 
             className="button px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
             onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.HOW_IT_WORKS)}
@@ -404,10 +404,10 @@ export default function WebsiteLanding() {
                 </div>
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ChooseAFeel</span>
               </div>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes with our intuitive control panel.</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes using the side panel on the right.</p>
             </div>
             <div>
-              <h3 className="font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Control Panel</h3>
+              <h3 className="font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Side Panel</h3>
               <ul className="space-y-2 sm:space-y-3">
                 <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.HOW_IT_WORKS)}>Getting Started</button></li>
                 <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.RESOURCES)}>Color Controls</button></li>
@@ -440,7 +440,7 @@ export default function WebsiteLanding() {
             </div>
           </div>
           <div className="border-t mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 text-center" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
-            <p className="text-xs sm:text-sm">&copy; 2024 ChooseAFeel. Made with ❤️ for designers everywhere.</p>
+            <p className="text-xs sm:text-sm">&copy; 2025 TheDevRicardo. All rights reserved.</p>
           </div>
         </div>
       </footer>

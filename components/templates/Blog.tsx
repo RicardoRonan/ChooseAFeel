@@ -17,8 +17,8 @@ export default function Blog() {
       <header className="py-6 sm:py-8 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>Design Blog</h1>
-            <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Insights, tutorials, and inspiration for modern designers</p>
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ChooseAFeel Blog</h1>
+            <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Tips and guides for using the side panel on the right to customize colors</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <button 
@@ -47,18 +47,18 @@ export default function Blog() {
               <span className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Design • 5 min read</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>
-              The Psychology of Color in Modern Web Design
+              Getting Started with ChooseAFeel Side Panel
             </h2>
             <p className="mb-4 sm:mb-6 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>
-              Understanding how colors influence user behavior and decision-making is crucial for creating effective digital experiences. In this comprehensive guide, I explore the science behind color psychology and how to apply it to your design work.
+              Learn how to use the side panel on the right to change colors, fonts, and styling. This guide shows you how to use color pickers, preset palettes, fonts, and accessibility checks.
             </p>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-secondary)', borderRadius: '50%' }}>
-                  <span className="text-xs sm:text-sm font-semibold" style={{ color: 'var(--color-primary-contrast)' }}>SM</span>
+                  <span className="text-xs sm:text-sm font-semibold" style={{ color: 'var(--color-primary-contrast)' }}>CAF</span>
                 </div>
                 <div>
-                  <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Sarah Martinez</p>
+                  <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>ChooseAFeel Team</p>
                   <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Dec 15, 2024</p>
                 </div>
               </div>
@@ -75,36 +75,36 @@ export default function Blog() {
           <div id={SECTIONS.BLOG.ARTICLES} className="equal-height-cards grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {[
               {
-                title: "Building Accessible Color Palettes",
-                excerpt: "Learn how to create color combinations that work for everyone, including users with visual impairments.",
-                author: "Alex Chen",
+                title: "Understanding Accessibility in Color Palettes",
+                excerpt: "The side panel checks if your colors are easy to read. Learn how the accessibility checker works and why it matters.",
+                author: "ChooseAFeel Team",
                 date: "Dec 12, 2024",
                 readTime: "4 min read",
                 category: "Accessibility"
               },
               {
-                title: "Typography Trends for 2024",
-                excerpt: "Discover the latest typography trends and how they're shaping modern digital design.",
-                author: "Maria Rodriguez",
+                title: "Using Preset Color Palettes",
+                excerpt: "In the side panel, click the Presets tab to find ready-made color palettes. Learn when to use presets vs. custom colors.",
+                author: "ChooseAFeel Team",
                 date: "Dec 10, 2024",
                 readTime: "6 min read",
-                category: "Typography"
+                category: "Presets"
               },
               {
-                title: "Mobile-First Design Principles",
-                excerpt: "Essential principles for creating designs that work beautifully across all device sizes.",
-                author: "David Kim",
+                title: "Exporting Your Color Palette",
+                excerpt: "After customizing with the side panel, learn how to export your design as PNG images or ZIP files with code.",
+                author: "ChooseAFeel Team",
                 date: "Dec 8, 2024",
                 readTime: "7 min read",
-                category: "Mobile"
+                category: "Export"
               },
               {
-                title: "The Future of UI Animation",
-                excerpt: "Exploring emerging trends in interface animation and micro-interactions.",
-                author: "Emma Wilson",
+                title: "Live Preview Features Explained",
+                excerpt: "See how the live preview works when you change colors in the side panel. Test your colors on different templates instantly.",
+                author: "ChooseAFeel Team",
                 date: "Dec 5, 2024",
                 readTime: "5 min read",
-                category: "Animation"
+                category: "Tutorial"
               }
             ].map((article, index) => (
               <article key={index} className="surface-card p-4 sm:p-6">
@@ -189,9 +189,9 @@ export default function Blog() {
         <div className="space-y-4 sm:space-y-6">
           {/* About */}
           <div className="surface-card p-4 sm:p-6">
-            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>About the Blog</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>About ChooseAFeel</h3>
             <p className="text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.5' }}>
-              I share insights, tutorials, and inspiration for designers who want to create better digital experiences.
+              ChooseAFeel helps you create color palettes using the side panel on the right. Learn how to use all the features to make beautiful designs.
             </p>
             <div className="flex items-center gap-2">
               <button 
@@ -213,7 +213,7 @@ export default function Blog() {
           <div className="surface-card p-4 sm:p-6">
             <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Popular Tags</h3>
             <div className="flex flex-wrap gap-1 sm:gap-2">
-              {['Color Theory', 'Typography', 'UI/UX', 'Accessibility', 'Mobile Design', 'Animation', 'Branding', 'Tools'].map((tag, index) => (
+              {['Side Panel', 'Color Picker', 'Presets', 'Accessibility', 'Export', 'Templates', 'Typography', 'Live Preview'].map((tag, index) => (
                 <button 
                   key={index}
                   className={index === 0 ? "accent-badge" : "px-2 sm:px-3 py-1 text-xs font-medium transition-colors"}
@@ -253,10 +253,10 @@ export default function Blog() {
             <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Recent Posts</h3>
             <div className="space-y-2 sm:space-y-3">
               {[
-                { title: "Design Systems 101", date: "Dec 14" },
-                { title: "Color Accessibility Guide", date: "Dec 11" },
-                { title: "Figma Tips & Tricks", date: "Dec 9" },
-                { title: "User Research Methods", date: "Dec 7" }
+                { title: "Side Panel Overview", date: "Dec 14" },
+                { title: "Accessibility Guide", date: "Dec 11" },
+                { title: "Preset Palettes Tips", date: "Dec 9" },
+                { title: "Export Tutorial", date: "Dec 7" }
               ].map((post, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text)' }}>{post.title}</p>
@@ -318,20 +318,20 @@ export default function Blog() {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Tools</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Documentation</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Figma Integration</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>VS Code Extension</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>API Access</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Templates</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>Color Games</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Getting Started Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Side Panel Tutorial</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Accessibility Tips</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Export Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Template Overview</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Preset Palettes</button></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Connect</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>Get Support</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Community</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>GitHub</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Help & Support</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Tutorial Library</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>FAQ</button></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">
@@ -344,12 +344,12 @@ export default function Blog() {
                 onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
                 onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}
               >
-                Share with friends
+                Learn More
               </button>
             </div>
           </div>
           <div className="border-t mt-8 sm:mt-12 pt-6 sm:pt-8 text-center" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
-            <p className="text-sm sm:text-base">&copy; 2024 ChooseAFeel. Made with ❤️ for designers everywhere.</p>
+            <p className="text-sm sm:text-base">&copy; 2025 TheDevRicardo. All rights reserved.</p>
           </div>
         </div>
       </footer>

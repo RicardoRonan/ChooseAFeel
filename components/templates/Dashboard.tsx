@@ -16,8 +16,8 @@ export default function Dashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-8 sm:py-12 lg:py-20 px-4 sm:px-6 gap-4 sm:gap-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="flex-1">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>Dashboard</h1>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Welcome back! Here&apos;s what&apos;s happening with your business today.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ChooseAFeel Dashboard</h1>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Track your color palette projects. Use the side panel on the right to customize colors.</p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <button 
@@ -50,9 +50,9 @@ export default function Dashboard() {
         <div className="surface-card p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0">
-              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Total Revenue</p>
-              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>$45,231</p>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>+20.1% from last month</p>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Palettes Created</p>
+              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>1,247</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>+127 this month</p>
             </div>
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-primary)', borderRadius: 'var(--radius)' }}>
               <svg className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: 'var(--color-primary-contrast)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,9 +65,9 @@ export default function Dashboard() {
         <div className="surface-card p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0">
-              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>New Customers</p>
-              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>2,350</p>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>+15.3% from last month</p>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Exports This Month</p>
+              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>856</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>PNG and ZIP files</p>
             </div>
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-secondary)', borderRadius: 'var(--radius)' }}>
               <svg className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: 'var(--color-primary-contrast)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,9 +80,9 @@ export default function Dashboard() {
         <div className="surface-card p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0">
-              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Active Projects</p>
-              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>12</p>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>3 completed this week</p>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Templates Used</p>
+              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>6</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>All templates available</p>
             </div>
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-accent)', borderRadius: 'var(--radius)' }}>
               <svg className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: 'var(--color-primary-contrast)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,9 +95,9 @@ export default function Dashboard() {
         <div className="surface-card p-4 sm:p-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0">
-              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Conversion Rate</p>
-              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>3.24%</p>
-              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>+0.4% from last month</p>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text-secondary)' }}>Accessibility Score</p>
+              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>98%</p>
+              <p className="text-xs sm:text-sm" style={{ color: 'var(--color-primary)' }}>WCAG AA compliant</p>
             </div>
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-primary)', borderRadius: 'var(--radius)' }}>
               <svg className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: 'var(--color-primary-contrast)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ export default function Dashboard() {
         {/* Revenue Chart */}
         <div className="surface-card p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
-            <h3 className="text-base sm:text-lg font-semibold" style={{ color: 'var(--color-text)' }}>Revenue Overview</h3>
+            <h3 className="text-base sm:text-lg font-semibold" style={{ color: 'var(--color-text)' }}>Palette Activity</h3>
             <div className="flex items-center gap-2">
               <button 
                 className="button-accent px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium"
@@ -178,27 +178,27 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Top Products */}
+        {/* Most Used Templates */}
         <div className="surface-card p-4 sm:p-6">
-          <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>Top Products</h3>
+          <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>Most Used Templates</h3>
           <div className="space-y-3 sm:space-y-4">
             {[
-              { name: 'Premium Widget', sales: 1240, revenue: '$12,400' },
-              { name: 'Standard Package', sales: 890, revenue: '$8,900' },
-              { name: 'Basic Plan', sales: 650, revenue: '$3,250' },
-              { name: 'Enterprise Suite', sales: 320, revenue: '$16,000' }
-            ].map((product, index) => (
+              { name: 'Website Landing', usage: 1240, exports: '856' },
+              { name: 'Dashboard', usage: 890, exports: '645' },
+              { name: 'Blog', usage: 650, exports: '432' },
+              { name: 'Portfolio', usage: 320, exports: '287' }
+            ].map((template, index) => (
               <div key={index} className="flex items-center justify-between">
                 <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                   <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
                     <span className="text-xs sm:text-sm font-medium" style={{ color: 'var(--color-text)' }}>{index + 1}</span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-sm sm:text-base truncate" style={{ color: 'var(--color-text)' }}>{product.name}</p>
-                    <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>{product.sales} sales</p>
+                    <p className="font-medium text-sm sm:text-base truncate" style={{ color: 'var(--color-text)' }}>{template.name}</p>
+                    <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>{template.usage} uses</p>
                   </div>
                 </div>
-                <p className="font-semibold text-sm sm:text-base flex-shrink-0" style={{ color: 'var(--color-text)' }}>{product.revenue}</p>
+                <p className="font-semibold text-sm sm:text-base flex-shrink-0" style={{ color: 'var(--color-text)' }}>{template.exports} exports</p>
               </div>
             ))}
           </div>
@@ -211,11 +211,11 @@ export default function Dashboard() {
           <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>Recent Activity</h3>
           <div className="space-y-3 sm:space-y-4">
             {[
-              { action: 'New customer registered', user: 'John Doe', time: '2 minutes ago', type: 'user' },
-              { action: 'Payment received', user: 'Sarah Wilson', time: '15 minutes ago', type: 'payment' },
-              { action: 'Project completed', user: 'Mike Chen', time: '1 hour ago', type: 'project' },
-              { action: 'New order placed', user: 'Emily Davis', time: '2 hours ago', type: 'order' },
-              { action: 'Support ticket resolved', user: 'Alex Johnson', time: '3 hours ago', type: 'support' }
+              { action: 'New palette created', user: 'Dashboard Template', time: '2 minutes ago', type: 'palette' },
+              { action: 'Color palette exported', user: 'Website Landing', time: '15 minutes ago', type: 'export' },
+              { action: 'Accessibility check passed', user: 'Blog Template', time: '1 hour ago', type: 'accessibility' },
+              { action: 'Preset palette applied', user: 'Portfolio Template', time: '2 hours ago', type: 'preset' },
+              { action: 'Live preview updated', user: 'Products Template', time: '3 hours ago', type: 'preview' }
             ].map((activity, index) => (
               <div key={index} className="flex items-center gap-3 sm:gap-4 p-3" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
                 <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: index === 0 ? 'var(--color-accent)' : 'var(--color-primary)', borderRadius: 'var(--radius)' }}>
@@ -313,20 +313,20 @@ export default function Dashboard() {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Tools</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>Documentation</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>Figma Integration</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>VS Code Extension</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>API Access</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>Templates</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>Color Games</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>Getting Started</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>Palette Stats</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>Recent Activity</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>Export Options</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>Templates Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>Side Panel Help</button></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Connect</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>Get Support</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>Community</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>GitHub</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}>Help & Support</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}>Usage Statistics</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.DASHBOARD.ACTIVITY)}>Activity Log</button></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">
@@ -337,14 +337,14 @@ export default function Dashboard() {
                 style={{ color: 'var(--color-primary)' }} 
                 onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
                 onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
-                onClick={() => scrollToSection(SECTIONS.DASHBOARD.STATS)}
+                onClick={() => scrollToSection(SECTIONS.DASHBOARD.CHARTS)}
               >
-                Share with friends
+                View Guide
               </button>
             </div>
           </div>
           <div className="border-t mt-8 sm:mt-12 pt-6 sm:pt-8 text-center" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)' }}>
-            <p className="text-sm sm:text-base">&copy; 2024 ChooseAFeel. Made with ❤️ for designers everywhere.</p>
+            <p className="text-sm sm:text-base">&copy; 2025 TheDevRicardo. All rights reserved.</p>
           </div>
         </div>
       </footer>

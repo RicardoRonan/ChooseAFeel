@@ -102,7 +102,7 @@ const defaultProject: Project = {
     subcopy: "Struggling to pick the right colors for your project? See your palette come to life on a real website layout.",
     cta: "Start Designing",
     features: ["Lightning Fast", "True-to-Life Preview", "Effortless Design"],
-    footer: "© 2024 ChooseAFeel. Made with ❤️ for designers everywhere."
+    footer: "© 2025 TheDevRicardo. All rights reserved."
   },
   dashboard: {
     title: "Dashboard",
