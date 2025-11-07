@@ -125,7 +125,7 @@ export default function WebsiteLanding() {
                 <div className="w-6 h-6 sm:w-8 sm:h-8 text-white flex items-center justify-center font-bold text-xs sm:text-sm surface-primary flex-shrink-0">1</div>
                 <div>
                   <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>Open the Side Panel</h3>
-                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Click the arrow button on the right side to open the side panel. You'll see two tabs: Theme and Presets.</p>
+                  <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }}>Click the arrow button on the right side to open the side panel. You&apos;ll see two tabs: Theme and Presets.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 sm:gap-4">

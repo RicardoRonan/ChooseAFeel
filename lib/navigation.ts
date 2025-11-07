@@ -20,6 +20,36 @@ export const scrollToTop = () => {
   });
 };
 
+/**
+ * Build a URL for the editor with optional query parameters
+ * @param template - Template type (website, dashboard, blog, etc.)
+ * @param mode - Theme mode (light or dark)
+ * @returns Editor URL with query parameters
+ */
+export function buildEditorUrl(template?: string, mode?: 'light' | 'dark'): string {
+  const base = '/editor';
+  const params = new URLSearchParams();
+  
+  if (template) {
+    params.set('template', template);
+  }
+  
+  if (mode) {
+    params.set('mode', mode);
+  }
+  
+  const queryString = params.toString();
+  return queryString ? `${base}?${queryString}` : base;
+}
+
+/**
+ * Get the base URL for the site
+ * @returns Base URL from environment or localhost fallback
+ */
+export function getBaseUrl(): string {
+  return process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+}
+
 // Section IDs for different templates
 export const SECTIONS = {
   WEBSITE_LANDING: {
