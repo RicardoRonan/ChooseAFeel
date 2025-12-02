@@ -400,7 +400,7 @@ export default function WebsiteLanding() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center surface-primary">
-                  <span className="text-white font-bold text-xs sm:text-sm">CAF</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">CP</span>
                 </div>
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>

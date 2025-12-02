@@ -4,6 +4,7 @@ import { scrollToSection, SECTIONS } from "@/lib/navigation"
 
 // Helper function to get CSS custom property values
 const getCSSVar = (property: string) => {
+  if (typeof window === 'undefined') return ''
   return getComputedStyle(document.documentElement).getPropertyValue(property)
 }
 
@@ -55,7 +56,7 @@ export default function Blog() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'var(--color-secondary)', borderRadius: '50%' }}>
-                  <span className="text-xs sm:text-sm font-semibold" style={{ color: 'var(--color-primary-contrast)' }}>CAF</span>
+                  <span className="text-xs sm:text-sm font-semibold" style={{ color: 'var(--color-primary-contrast)' }}>CP</span>
                 </div>
                 <div>
                   <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--color-text)' }}>ColourPal Team</p>
@@ -127,8 +128,8 @@ export default function Blog() {
                   <button 
                     className="text-xs sm:text-sm font-medium transition-colors flex-shrink-0" 
                     style={{ color: 'var(--color-primary)' }} 
-                    onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
-                    onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
+                    onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.opacity = '0.8'} 
+                    onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.opacity = '1'}
                     onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}
                   >
                     Read →
@@ -225,7 +226,7 @@ export default function Blog() {
                   onMouseEnter={(e) => {
                     if (index !== 0) {
                       if (typeof window === 'undefined') return
-                      const element = e.target as HTMLElement
+                      const element = e.currentTarget as HTMLElement
                       const computedStyle = getComputedStyle(document.documentElement)
                       element.style.backgroundColor = computedStyle.getPropertyValue('--color-primary')
                       element.style.color = computedStyle.getPropertyValue('--color-primary-contrast')
@@ -234,7 +235,7 @@ export default function Blog() {
                   onMouseLeave={(e) => {
                     if (index !== 0) {
                       if (typeof window === 'undefined') return
-                      const element = e.target as HTMLElement
+                      const element = e.currentTarget as HTMLElement
                       const computedStyle = getComputedStyle(document.documentElement)
                       element.style.backgroundColor = computedStyle.getPropertyValue('--color-surface')
                       element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
@@ -277,11 +278,11 @@ export default function Blog() {
                 className="w-full flex items-center justify-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors" 
                 style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-primary-contrast)', borderRadius: 'var(--radius)' }}
                 onMouseEnter={(e) => {
-                  const element = e.target as HTMLElement
+                  const element = e.currentTarget as HTMLElement
                   element.style.opacity = '0.9'
                 }}
                 onMouseLeave={(e) => {
-                  const element = e.target as HTMLElement
+                  const element = e.currentTarget as HTMLElement
                   element.style.opacity = '1'
                 }}
               >
@@ -297,11 +298,11 @@ export default function Blog() {
                 className="w-full flex items-center justify-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium transition-colors" 
                 style={{ backgroundColor: 'var(--color-secondary)', color: 'var(--color-primary-contrast)', borderRadius: 'var(--radius)' }}
                 onMouseEnter={(e) => {
-                  const element = e.target as HTMLElement
+                  const element = e.currentTarget as HTMLElement
                   element.style.opacity = '0.9'
                 }}
                 onMouseLeave={(e) => {
-                  const element = e.target as HTMLElement
+                  const element = e.currentTarget as HTMLElement
                   element.style.opacity = '1'
                 }}
               >
@@ -322,7 +323,7 @@ export default function Blog() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center surface-primary">
-                  <span className="text-white font-bold text-sm">CAF</span>
+                  <span className="text-white font-bold text-sm">CP</span>
                 </div>
                 <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
@@ -331,20 +332,20 @@ export default function Blog() {
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Tools</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Getting Started Guide</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Side Panel Tutorial</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Accessibility Tips</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Export Guide</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Template Overview</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Preset Palettes</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Getting Started Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Side Panel Tutorial</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Accessibility Tips</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Export Guide</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Template Overview</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Preset Palettes</button></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-3 sm:mb-4 text-sm uppercase tracking-wide" style={{ color: 'var(--color-text)' }}>Connect</h3>
               <ul className="space-y-2 sm:space-y-3">
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Help & Support</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Tutorial Library</button></li>
-                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>FAQ</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}>Help & Support</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.ARTICLES)}>Tutorial Library</button></li>
+                <li><button className="transition-colors hover:underline text-left text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.BLOG.NEWSLETTER)}>FAQ</button></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">
@@ -353,8 +354,8 @@ export default function Blog() {
               <button 
                 className="transition-colors hover:underline font-medium text-sm sm:text-base" 
                 style={{ color: 'var(--color-primary)' }} 
-                onMouseEnter={(e) => (e.target as HTMLElement).style.opacity = '0.8'} 
-                onMouseLeave={(e) => (e.target as HTMLElement).style.opacity = '1'}
+                onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.opacity = '0.8'} 
+                onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.opacity = '1'}
                 onClick={() => scrollToSection(SECTIONS.BLOG.FEATURED)}
               >
                 Learn More

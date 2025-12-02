@@ -372,7 +372,7 @@ export default function Products() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 flex items-center justify-center surface-primary">
-                  <span className="text-white font-bold text-sm">CAF</span>
+                  <span className="text-white font-bold text-sm">CP</span>
                 </div>
                 <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>

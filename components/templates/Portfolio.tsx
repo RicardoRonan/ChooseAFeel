@@ -17,7 +17,7 @@ export default function Portfolio() {
       <section id={SECTIONS.PORTFOLIO.HERO} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 text-center" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-3xl mx-auto">
           <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-6 flex items-center justify-center" style={{ backgroundColor: 'var(--color-primary)', borderRadius: '50%' }}>
-            <span className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: 'var(--color-primary-contrast)' }}>CAF</span>
+            <span className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: 'var(--color-primary-contrast)' }}>CP</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>
             ColourPal
@@ -271,7 +271,7 @@ export default function Portfolio() {
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center surface-primary">
-                  <span className="text-white font-bold text-xs sm:text-sm">CAF</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">CP</span>
                 </div>
                 <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
