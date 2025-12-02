@@ -10,8 +10,8 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "ChooseAFeel",
-    template: "%s · ChooseAFeel",
+    default: "ColourPal",
+    template: "%s · ColourPal",
   },
   description:
     "Design and customize accessible website templates with live color and font controls. Preview in real time, check WCAG contrast, and export PNG, CSS, or ZIP starters.",
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     "CSS export",
     "design tool",
   ],
-  authors: [{ name: "ChooseAFeel" }],
-  creator: "ChooseAFeel",
+  authors: [{ name: "ColourPal" }],
+  creator: "ColourPal",
   openGraph: {
     type: "website",
     locale: "en_GB",
     url: baseUrl,
-    siteName: "ChooseAFeel",
-    title: "ChooseAFeel - Design and Export Accessible Website Themes",
+    siteName: "ColourPal",
+    title: "ColourPal - Design and Export Accessible Website Themes",
     description:
       "Design and customize accessible website templates with live color and font controls. Preview in real time, check WCAG contrast, and export PNG, CSS, or ZIP starters.",
     images: [
@@ -43,14 +43,13 @@ export const metadata: Metadata = {
         url: `${baseUrl}/og`,
         width: 1200,
         height: 630,
-        alt: "ChooseAFeel - Theme Editor",
+        alt: "ColourPal - Theme Editor",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@chooseafeel",
-    title: "ChooseAFeel - Design and Export Accessible Website Themes",
+    title: "ColourPal - Design and Export Accessible Website Themes",
     description:
       "Design and customize accessible website templates with live color and font controls.",
     images: [`${baseUrl}/og`],

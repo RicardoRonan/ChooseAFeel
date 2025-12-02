@@ -45,7 +45,7 @@ export default function WebsiteLanding() {
         <p className="text-xs sm:text-sm mt-4 sm:mt-6" style={{ color: 'var(--color-text-secondary)' }}>Open the side panel on the right to start customizing</p>
       </section>
 
-      {/* Why ChooseAFeel Section */}
+      {/* Why ColourPal Section */}
       <section id={SECTIONS.WEBSITE_LANDING.WHY_CHOOSE} className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12" style={{ color: 'var(--color-text)' }}>Why Use Our Side Panel?</h2>
@@ -402,7 +402,7 @@ export default function WebsiteLanding() {
                 <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center surface-primary">
                   <span className="text-white font-bold text-xs sm:text-sm">CAF</span>
                 </div>
-                <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ChooseAFeel</span>
+                <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
               <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes using the side panel on the right.</p>
             </div>
@@ -422,7 +422,8 @@ export default function WebsiteLanding() {
               <ul className="space-y-2 sm:space-y-3">
                 <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.FAQ)}>Get Support</button></li>
                 <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.TESTIMONIALS)}>Community</button></li>
-                <li><button className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')} onClick={() => scrollToSection(SECTIONS.WEBSITE_LANDING.RESOURCES)}>GitHub</button></li>
+                <li><a href="https://thedevricardo.netlify.app/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')}>Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/the-dev-ricardo/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:underline text-left text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-primary')} onMouseLeave={(e) => (e.target as HTMLElement).style.color = getCSSVar('--color-text-secondary')}>LinkedIn</a></li>
               </ul>
             </div>
             <div className="sm:col-span-2 lg:col-span-1">

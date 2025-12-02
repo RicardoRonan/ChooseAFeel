@@ -97,7 +97,7 @@ const defaultProject: Project = {
     left: "#06b6d4"
   },
   website: {
-    siteName: "ChooseAFeel",
+    siteName: "ColourPal",
     heroHeading: "Design Your Perfect Brand Palette Instantly",
     subcopy: "Struggling to pick the right colors for your project? See your palette come to life on a real website layout.",
     cta: "Start Designing",

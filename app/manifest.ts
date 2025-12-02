@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ChooseAFeel",
-    short_name: "ChooseAFeel",
+    name: "ColourPal",
+    short_name: "ColourPal",
     description:
       "Design and customize accessible website templates with live color and font controls.",
     start_url: "/",
@@ -19,6 +19,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   };
 }
+
 
 
 

@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
               textAlign: "center",
             }}
           >
-            ChooseAFeel
+            ColourPal
           </h1>
           <p
             style={{
@@ -88,6 +88,7 @@ export async function GET(request: NextRequest) {
     }
   );
 }
+
 
 
 

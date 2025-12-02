@@ -1,6 +1,6 @@
 # Rubik's Cube Integration
 
-This document describes the Rubik's Cube integration added to the ChooseAFeel project.
+This document describes the Rubik's Cube integration added to the ColourPal project.
 
 ## Overview
 

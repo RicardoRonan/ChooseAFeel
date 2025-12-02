@@ -1,4 +1,4 @@
-# ChooseAFeel
+# ColourPal
 
 A complete production-ready project that lets users create and customize website templates with live-edit color palette, font, and border radius. Includes export to PNG for printables and ZIP for website starter.
 
@@ -36,7 +36,7 @@ A complete production-ready project that lets users create and customize website
    cp .env.example .env
    ```
    
-   Edit `.env` and set `NEXT_PUBLIC_SITE_URL` to your production domain (e.g., `https://chooseafeel.com`). For local development, you can leave it as `http://localhost:3000`.
+   Edit `.env` and set `NEXT_PUBLIC_SITE_URL` to your production domain. For local development, you can leave it as `http://localhost:3000`.
 
 3. Run the development server:
    ```bash
@@ -49,7 +49,7 @@ A complete production-ready project that lets users create and customize website
 
 ## SEO Setup
 
-ChooseAFeel is fully SEO-optimized with comprehensive metadata, structured data, and indexable pages. Key SEO features include:
+ColourPal is fully SEO-optimized with comprehensive metadata, structured data, and indexable pages. Key SEO features include:
 
 - **Metadata**: Comprehensive Open Graph and Twitter Card support
 - **Structured Data**: JSON-LD schemas for WebApplication, Breadcrumbs, and FAQ pages
@@ -73,7 +73,7 @@ Make sure to set `NEXT_PUBLIC_SITE_URL` in your environment variables for proper
 ## Project Structure
 
 ```
-ChooseAFeel/
+ColourPal/
 ├── app/                    # Next.js app directory
 │   ├── editor/            # Editor page (moved from root)
 │   ├── features/          # Features marketing page

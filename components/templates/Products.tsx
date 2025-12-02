@@ -17,7 +17,7 @@ export default function Products() {
       <header className="py-8 sm:py-12 lg:py-20 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
-            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ChooseAFeel Resources</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ColourPal Resources</h1>
             <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Tools and guides for using the side panel to customize colors</p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -324,7 +324,7 @@ export default function Products() {
       {/* Newsletter */}
       <div className="surface-card p-4 sm:p-6 lg:p-8 text-center mt-8 sm:mt-12">
         <h3 className="text-lg sm:text-xl font-semibold mb-3" style={{ color: 'var(--color-text)' }}>Stay Updated</h3>
-        <p className="mb-4 sm:mb-6 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Get notified about new ChooseAFeel features, tutorials, and design tips.</p>
+        <p className="mb-4 sm:mb-6 text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Get notified about new ColourPal features, tutorials, and design tips.</p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input 
             type="email" 
@@ -374,7 +374,7 @@ export default function Products() {
                 <div className="w-8 h-8 flex items-center justify-center surface-primary">
                   <span className="text-white font-bold text-sm">CAF</span>
                 </div>
-                <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ChooseAFeel</span>
+                <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
               <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes with confidence.</p>
             </div>

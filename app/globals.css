@@ -44,7 +44,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ChooseAFeel inspired components */
+/* ColourPal inspired components */
 .toolbar {
   background: var(--color-bg);
   border-top: 1px solid var(--color-border);

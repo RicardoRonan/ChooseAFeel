@@ -13,13 +13,13 @@ export interface FAQItem {
 }
 
 /**
- * Generate WebApplication/SoftwareApplication schema for ChooseAFeel
+ * Generate WebApplication/SoftwareApplication schema for ColourPal
  */
 export function webAppLD() {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "ChooseAFeel",
+    name: "ColourPal",
     description:
       "Design and customize accessible website templates with live color and font controls. Preview in real time, check WCAG contrast, and export PNG, CSS, or ZIP starters.",
     url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
@@ -79,6 +79,7 @@ export function faqLD(items: FAQItem[]) {
     })),
   };
 }
+
 
 
 

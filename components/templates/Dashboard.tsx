@@ -16,7 +16,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-8 sm:py-12 lg:py-20 px-4 sm:px-6 gap-4 sm:gap-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="flex-1">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ChooseAFeel Dashboard</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>ColourPal Dashboard</h1>
           <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Track your color palette projects. Use the side panel on the right to customize colors.</p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -306,7 +306,7 @@ export default function Dashboard() {
                 <div className="w-8 h-8 flex items-center justify-center surface-primary">
                   <span className="text-white font-bold text-sm">CAF</span>
                 </div>
-                <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ChooseAFeel</span>
+                <span className="font-bold text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
               <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes with confidence.</p>
             </div>

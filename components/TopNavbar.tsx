@@ -129,7 +129,7 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
         <div className="flex items-center justify-between">
           {/* Left section - App title (hidden on mobile) */}
           <div className="flex items-center gap-4">
-            <h1 className="hidden sm:block text-lg sm:text-xl font-bold" style={{ color: 'var(--color-text)' }}>ChooseAFeel</h1>
+            <h1 className="hidden sm:block text-lg sm:text-xl font-bold" style={{ color: 'var(--color-text)' }}>ColourPal</h1>
           </div>
 
           {/* Right section - Actions */}

@@ -20,7 +20,7 @@ export default function Portfolio() {
             <span className="text-lg sm:text-xl lg:text-2xl font-bold" style={{ color: 'var(--color-primary-contrast)' }}>CAF</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>
-            ChooseAFeel
+            ColourPal
           </h1>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8" style={{ color: 'var(--color-text-secondary)' }}>
             Color Palette Customization Tool
@@ -48,7 +48,7 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id={SECTIONS.PORTFOLIO.SKILLS} className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ChooseAFeel Features</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ColourPal Features</h2>
           <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Everything you need to create perfect color palettes</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -92,7 +92,7 @@ export default function Portfolio() {
       {/* Featured Projects */}
       <section id={SECTIONS.PORTFOLIO.PROJECTS} className="py-12 sm:py-16 px-4 sm:px-6" style={{ backgroundColor: 'var(--color-surface)', borderRadius: 'var(--radius)' }}>
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ChooseAFeel Features</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>ColourPal Features</h2>
           <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Explore what makes our color palette tool powerful</p>
         </div>
         <div className="equal-height-cards grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
@@ -167,7 +167,7 @@ export default function Portfolio() {
       <section id={SECTIONS.PORTFOLIO.TESTIMONIALS} className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>What Users Say</h2>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Feedback from designers using ChooseAFeel</p>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-secondary)' }}>Feedback from designers using ColourPal</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {[
@@ -184,7 +184,7 @@ export default function Portfolio() {
               avatar: "MC"
             },
             {
-              quote: "After customizing with the side panel, I can export as PNG or ZIP. ChooseAFeel has become essential to my design process.",
+              quote: "After customizing with the side panel, I can export as PNG or ZIP. ColourPal has become essential to my design process.",
               author: "Emily Davis",
               role: "Frontend Developer",
               avatar: "ED"
@@ -216,7 +216,7 @@ export default function Portfolio() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style={{ color: 'var(--color-text)' }}>Ready to Get Started?</h2>
           <p className="text-sm sm:text-base lg:text-lg mb-6 sm:mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            Start creating beautiful color palettes with ChooseAFeel. Open the side panel on the right to change colors, fonts, and styling instantly.
+            Start creating beautiful color palettes with ColourPal. Open the side panel on the right to change colors, fonts, and styling instantly.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8">
             <button 
@@ -273,7 +273,7 @@ export default function Portfolio() {
                 <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center surface-primary">
                   <span className="text-white font-bold text-xs sm:text-sm">CAF</span>
                 </div>
-                <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ChooseAFeel</span>
+                <span className="font-bold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>ColourPal</span>
               </div>
               <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>Create perfect color palettes with confidence.</p>
             </div>
