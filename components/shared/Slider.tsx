@@ -22,14 +22,18 @@ export default function Slider({
   className = ''
 }: SliderProps) {
   return (
-    <div className={`space-y-2 ${className}`}>
+    <div className={`space-y-3 ${className}`}>
       {label && (
         <div className="flex items-center justify-between">
-          <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+          <span className="text-xs font-medium" style={{ color: 'var(--color-text-secondary)', letterSpacing: '-0.01em' }}>
             {label}
           </span>
           {showValue && (
-            <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+            <span className="text-xs font-semibold px-2 py-0.5 rounded" style={{ 
+              color: 'var(--color-text)', 
+              backgroundColor: 'var(--color-surface)',
+              letterSpacing: '-0.01em'
+            }}>
               {value}
             </span>
           )}
@@ -42,8 +46,11 @@ export default function Slider({
         step={step}
         value={value}
         onChange={e => onChange(Number(e.target.value))}
-        className="w-full h-1 rounded-lg appearance-none cursor-pointer"
-        style={{ backgroundColor: 'var(--color-surface)' }}
+        className="slider w-full h-1.5 rounded-lg appearance-none cursor-pointer"
+        style={{ 
+          backgroundColor: 'var(--color-surface)',
+          backgroundImage: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${((value - min) / (max - min)) * 100}%, var(--color-surface) ${((value - min) / (max - min)) * 100}%, var(--color-surface) 100%)`
+        }}
       />
     </div>
   )

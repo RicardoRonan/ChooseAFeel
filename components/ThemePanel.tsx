@@ -60,9 +60,9 @@ export default function ThemePanel() {
     <div className="relative h-full flex flex-col">
       <div className="flex-1 space-y-6 pb-20">
       {/* Color controls */}
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-medium" style={{ color: 'var(--color-text)' }}>Colors</h3>
+      <div className="surface-card p-4">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-semibold" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Colors</h3>
           <Button
             onClick={() => {
               // Add a subtle delay for smooth transition
@@ -74,7 +74,7 @@ export default function ThemePanel() {
             size="sm"
             className="text-xs transition-all duration-300 hover:scale-105"
           >
-            🎨 Randomize
+             Randomize
           </Button>
         </div>
         <div className="grid grid-cols-2 gap-3">
@@ -145,8 +145,8 @@ export default function ThemePanel() {
       </div>
 
       {/* Palette Type Selector */}
-      <div>
-        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--color-text)' }}>Palette Type</h3>
+      <div className="surface-card p-4">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Palette Type</h3>
         <Dropdown<PaletteType>
           options={paletteTypeOptions}
           value={project.theme.paletteType as PaletteType}
@@ -156,8 +156,8 @@ export default function ThemePanel() {
       </div>
 
       {/* Dark mode toggle */}
-      <div>
-        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--color-text)' }}>Appearance</h3>
+      <div className="surface-card p-4">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Appearance</h3>
         <Toggle
           checked={project.theme.isDarkMode}
           onChange={toggleDarkMode}
@@ -166,8 +166,8 @@ export default function ThemePanel() {
       </div>
 
       {/* Border radius slider */}
-      <div>
-        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--color-text)' }}>Border Radius</h3>
+      <div className="surface-card p-4">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Border Radius</h3>
         <Slider
           value={project.theme.radius}
           onChange={value => updateTheme({ radius: value })}
@@ -179,8 +179,8 @@ export default function ThemePanel() {
       </div>
 
       {/* Border toggle */}
-      <div>
-        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--color-text)' }}>Borders</h3>
+      <div className="surface-card p-4">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Borders</h3>
         <Toggle
           checked={project.theme.useBorders}
           onChange={checked => updateTheme({ useBorders: checked })}
@@ -189,10 +189,10 @@ export default function ThemePanel() {
       </div>
 
       {/* Font selector */}
-      <div>
-        <h3 className="text-sm font-medium mb-3" style={{ color: 'var(--color-text)' }}>Typography</h3>
+      <div className="surface-card p-4">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: 'var(--color-text)', letterSpacing: '-0.01em' }}>Typography</h3>
         <div className="space-y-2">
-          <label className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Font Family</label>
+          <label className="text-xs font-medium" style={{ color: 'var(--color-text-secondary)', letterSpacing: '-0.01em' }}>Font Family</label>
           <Dropdown
             options={fontOptions}
             value={getCurrentFontLabel()}
@@ -209,8 +209,9 @@ export default function ThemePanel() {
         className="sticky bottom-0 pt-4 bg-inherit"
         style={{ 
           borderTop: '1px solid var(--color-border)',
-          backgroundColor: 'var(--color-bg)',
-          backdropFilter: 'blur(10px)'
+          backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.95)',
+          backdropFilter: 'blur(12px)',
+          zIndex: 1
         }}
       >
         <Button 

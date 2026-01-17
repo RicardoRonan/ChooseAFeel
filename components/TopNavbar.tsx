@@ -10,6 +10,8 @@ interface TopNavbarProps {
 
 export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) {
   const { project, setType } = useProject()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
   
   const templateOptions: { value: ProjectType; label: string }[] = [
     { value: "website", label: "Website Landing" },
@@ -19,6 +21,25 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
     { value: "portfolio", label: "Portfolio" },
     { value: "rubik", label: "Rubik's Cube" }
   ]
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as Node
+      if (menuRef.current && !menuRef.current.contains(target)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    if (isMenuOpen) {
+      // Use click event instead of mousedown to allow button clicks to register
+      document.addEventListener('click', handleClickOutside, true)
+      
+      return () => {
+        document.removeEventListener('click', handleClickOutside, true)
+      }
+    }
+  }, [isMenuOpen])
 
   
   async function handleExportPNG() {
@@ -111,55 +132,235 @@ export default function TopNavbar({ sidebarCollapsed = false }: TopNavbarProps) 
   }
 
   function handleTemplateSelect(templateType: ProjectType) {
-    // Add a small delay to show the transition effect
-    setTimeout(() => {
-      setType(templateType)
-    }, 100)
+    // Immediately update the type
+    setType(templateType)
   }
 
   return (
-    <nav className={`fixed top-0 left-0 z-[9998] backdrop-blur-md shadow-sm transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 z-[9998] backdrop-blur-xl shadow-sm transition-all duration-300 ${
       sidebarCollapsed ? 'right-0' : 'right-0'
     }`} style={{ 
-      backgroundColor: 'var(--color-bg)', 
+      backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)', 
       borderBottom: '1px solid var(--color-border)',
-      borderRadius: '0 0 var(--radius) var(--radius)'
+      borderRadius: '0 0 var(--radius) var(--radius)',
+      boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
     }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
         <div className="flex items-center justify-between">
-          {/* Left section - App title (hidden on mobile) */}
+          {/* Left section - App title */}
           <div className="flex items-center gap-4">
-            <h1 className="hidden sm:block text-lg sm:text-xl font-bold" style={{ color: 'var(--color-text)' }}>ColourPal</h1>
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight" style={{ 
+              color: 'var(--color-text)',
+              letterSpacing: '-0.02em',
+              fontWeight: 700
+            }}>ColourPal</h1>
           </div>
 
-          {/* Right section - Actions */}
-          <div className="flex items-center gap-1 sm:gap-2 md:gap-4">
-            
-            {/* Templates Dropdown */}
-            <Dropdown
-              options={templateOptions}
-              onSelect={handleTemplateSelect as (value: string) => void}
-              placeholder="Templates"
-              width="w-32 sm:w-36 md:w-40"
-              className="relative"
-            />
-            
-            {/* Export Dropdown */}
-            <Dropdown
-              options={[
-                { value: 'png', label: 'Export PNG' },
-                { value: 'zip', label: 'Export ZIP' },
-                { value: 'css', label: 'Copy CSS' }
-              ]}
-              onSelect={(value) => {
-                if (value === 'png') handleExportPNG()
-                if (value === 'zip') handleExportZIP()
-                if (value === 'css') handleCopyCSS()
+          {/* Right section - Three dots menu */}
+          <div className="relative" ref={menuRef}>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2.5 rounded-lg transition-all duration-200 relative"
+              style={{
+                color: 'var(--color-text)',
+                backgroundColor: isMenuOpen ? 'var(--color-surface)' : 'transparent',
+                border: '1px solid transparent'
               }}
-              placeholder="Export"
-              width="w-24 sm:w-28 md:w-32"
-              className="relative"
-            />
+              onMouseEnter={(e) => {
+                const element = e.target as HTMLElement
+                if (!isMenuOpen) {
+                  element.style.backgroundColor = 'var(--color-surface)'
+                  element.style.borderColor = 'var(--color-border)'
+                }
+              }}
+              onMouseLeave={(e) => {
+                const element = e.target as HTMLElement
+                if (!isMenuOpen) {
+                  element.style.backgroundColor = 'transparent'
+                  element.style.borderColor = 'transparent'
+                }
+              }}
+              aria-label="Menu"
+            >
+              <svg 
+                className="w-5 h-5 transition-transform duration-200" 
+                fill="currentColor" 
+                viewBox="0 0 24 24"
+                style={{ opacity: 0.9 }}
+              >
+                <circle cx="12" cy="5" r="1.75" />
+                <circle cx="12" cy="12" r="1.75" />
+                <circle cx="12" cy="19" r="1.75" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            {isMenuOpen && (
+              <div 
+                className="absolute right-0 top-full mt-3 w-64 z-50 overflow-hidden animate-fadeIn"
+                style={{ 
+                  backgroundColor: 'var(--color-bg)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 'calc(var(--radius) + 2px)',
+                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+                  backdropFilter: 'blur(12px)'
+                }}
+              >
+                {/* Templates Section */}
+                <div className="px-4 py-3">
+                  <div 
+                    className="text-[10px] font-semibold uppercase tracking-wider mb-3 px-1"
+                    style={{ 
+                      color: 'var(--color-text-secondary)',
+                      opacity: 0.8,
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    Templates
+                  </div>
+                  <div className="space-y-0.5">
+                    {templateOptions.map((option, index) => (
+                      <button
+                        key={option.value}
+                        className="w-full px-3 py-2.5 text-sm text-left transition-all duration-150 rounded-md font-medium relative"
+                        style={{ 
+                          color: 'var(--color-text)',
+                          letterSpacing: '-0.01em'
+                        }}
+                        onMouseEnter={(e) => {
+                          const element = e.target as HTMLElement
+                          element.style.backgroundColor = 'var(--color-surface)'
+                          element.style.transform = 'translateX(2px)'
+                        }}
+                        onMouseLeave={(e) => {
+                          const element = e.target as HTMLElement
+                          element.style.backgroundColor = 'transparent'
+                          element.style.transform = 'translateX(0)'
+                        }}
+                        onMouseDown={(e) => {
+                          e.stopPropagation()
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          handleTemplateSelect(option.value)
+                          setIsMenuOpen(false)
+                        }}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div style={{ 
+                  borderTop: '1px solid var(--color-border)',
+                  opacity: 0.3,
+                  margin: '0 12px'
+                }} />
+
+                {/* Export Section */}
+                <div className="px-4 py-3">
+                  <div 
+                    className="text-[10px] font-semibold uppercase tracking-wider mb-3 px-1"
+                    style={{ 
+                      color: 'var(--color-text-secondary)',
+                      opacity: 0.8,
+                      letterSpacing: '0.05em'
+                    }}
+                  >
+                    Export
+                  </div>
+                  <div className="space-y-0.5">
+                    <button
+                      className="w-full px-3 py-2.5 text-sm text-left transition-all duration-150 rounded-md font-medium relative"
+                      style={{ 
+                        color: 'var(--color-text)',
+                        letterSpacing: '-0.01em'
+                      }}
+                      onMouseEnter={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'var(--color-surface)'
+                        element.style.transform = 'translateX(2px)'
+                      }}
+                      onMouseLeave={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'transparent'
+                        element.style.transform = 'translateX(0)'
+                      }}
+                      onMouseDown={(e) => {
+                        e.stopPropagation()
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        handleExportPNG()
+                        setIsMenuOpen(false)
+                      }}
+                    >
+                      Export PNG
+                    </button>
+                    <button
+                      className="w-full px-3 py-2.5 text-sm text-left transition-all duration-150 rounded-md font-medium relative"
+                      style={{ 
+                        color: 'var(--color-text)',
+                        letterSpacing: '-0.01em'
+                      }}
+                      onMouseEnter={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'var(--color-surface)'
+                        element.style.transform = 'translateX(2px)'
+                      }}
+                      onMouseLeave={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'transparent'
+                        element.style.transform = 'translateX(0)'
+                      }}
+                      onMouseDown={(e) => {
+                        e.stopPropagation()
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        handleExportZIP()
+                        setIsMenuOpen(false)
+                      }}
+                    >
+                      Export ZIP
+                    </button>
+                    <button
+                      className="w-full px-3 py-2.5 text-sm text-left transition-all duration-150 rounded-md font-medium relative"
+                      style={{ 
+                        color: 'var(--color-text)',
+                        letterSpacing: '-0.01em'
+                      }}
+                      onMouseEnter={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'var(--color-surface)'
+                        element.style.transform = 'translateX(2px)'
+                      }}
+                      onMouseLeave={(e) => {
+                        const element = e.target as HTMLElement
+                        element.style.backgroundColor = 'transparent'
+                        element.style.transform = 'translateX(0)'
+                      }}
+                      onMouseDown={(e) => {
+                        e.stopPropagation()
+                      }}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        handleCopyCSS()
+                        setIsMenuOpen(false)
+                      }}
+                    >
+                      Copy CSS
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

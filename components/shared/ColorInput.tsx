@@ -43,23 +43,37 @@ export default function ColorInput({
   }
 
   return (
-    <div className={`flex flex-col gap-1 ${className}`}>
-      <label className="text-xs transition-colors duration-300" style={{ color: 'var(--color-text-secondary)' }}>
+    <div className={`flex flex-col gap-2 ${className}`}>
+      <label className="text-xs font-medium transition-colors duration-300" style={{ 
+        color: 'var(--color-text-secondary)',
+        letterSpacing: '-0.01em'
+      }}>
         {label}
       </label>
       <div className="relative">
         <input 
           type="color" 
-          className={`w-full h-8 cursor-pointer transition-all duration-300 ease-in-out ${
+          className={`w-full h-10 cursor-pointer transition-all duration-300 ease-in-out ${
             isChanging ? 'scale-105 shadow-lg' : 'scale-100'
           }`}
           style={{ 
             borderRadius: 'var(--radius)',
-            border: '1px solid var(--color-border)',
-            transition: 'all 0.3s ease-in-out'
+            border: 'none',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            boxShadow: 'var(--shadow-sm)'
           }}
           value={value}
-          onChange={e => handleChange(e.target.value)} 
+          onChange={e => handleChange(e.target.value)}
+          onMouseEnter={(e) => {
+            const element = e.target as HTMLElement
+            element.style.boxShadow = 'var(--shadow-md)'
+          }}
+          onMouseLeave={(e) => {
+            const element = e.target as HTMLElement
+            if (!isChanging) {
+              element.style.boxShadow = 'var(--shadow-sm)'
+            }
+          }}
         />
         {/* Subtle glow effect during color changes */}
         {isChanging && (
@@ -67,7 +81,8 @@ export default function ColorInput({
             className="absolute inset-0 rounded pointer-events-none animate-colorPulse"
             style={{
               background: `linear-gradient(45deg, ${value}20, ${value}40)`,
-              opacity: 0.6
+              opacity: 0.6,
+              borderRadius: 'var(--radius)'
             }}
           />
         )}

@@ -60,22 +60,30 @@ export default function Dropdown<T = string>({
     <div className={`relative ${width} ${className}`} ref={dropdownRef}>
       <button 
         ref={buttonRef}
-        className={`${width} text-sm px-3 py-2 flex items-center justify-between transition-colors`}
+        className={`${width} text-sm px-3 py-2.5 flex items-center justify-between transition-all duration-200`}
         style={{ 
           border: '1px solid var(--color-border)',
           backgroundColor: 'var(--color-bg)',
           color: 'var(--color-text)',
-          borderRadius: 'var(--radius)'
+          borderRadius: 'var(--radius)',
+          letterSpacing: '-0.01em',
+          boxShadow: 'var(--shadow-sm)'
         }}
         onMouseEnter={(e) => {
           if (typeof window === 'undefined') return
           const element = e.target as HTMLElement
           element.style.backgroundColor = 'var(--color-surface)'
+          element.style.borderColor = 'var(--color-primary)'
+          element.style.boxShadow = 'var(--shadow-md)'
         }}
         onMouseLeave={(e) => {
           if (typeof window === 'undefined') return
           const element = e.target as HTMLElement
-          element.style.backgroundColor = 'var(--color-bg)'
+          if (!isOpen) {
+            element.style.backgroundColor = 'var(--color-bg)'
+            element.style.borderColor = 'var(--color-border)'
+            element.style.boxShadow = 'var(--shadow-sm)'
+          }
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -93,31 +101,37 @@ export default function Dropdown<T = string>({
       {/* Dropdown Menu */}
       {isOpen && (
         <div 
-          className={`absolute top-full left-0 right-0 mt-1 z-50 ${maxHeight} overflow-y-auto`}
+          className={`absolute top-full left-0 right-0 mt-2 ${maxHeight} overflow-y-auto animate-fadeIn`}
           style={{ 
             backgroundColor: 'var(--color-bg)',
             border: '1px solid var(--color-border)',
             borderRadius: 'var(--radius)',
-            boxShadow: 'var(--shadow-lg)'
+            boxShadow: 'var(--shadow-xl)',
+            backdropFilter: 'blur(12px)',
+            zIndex: 10000
           }}
         >
           {options.map((option, index) => (
             <button 
               key={option.value}
-              className="w-full px-3 py-2 text-sm text-left transition-colors hover:bg-opacity-10"
+              className="w-full px-3 py-2.5 text-sm text-left transition-all duration-150 relative"
               style={{ 
                 color: 'var(--color-text)',
-                borderBottom: index < options.length - 1 ? '1px solid var(--color-border)' : 'none'
+                borderBottom: index < options.length - 1 ? '1px solid var(--color-border)' : 'none',
+                letterSpacing: '-0.01em',
+                opacity: index < options.length - 1 ? 1 : 0.95
               }}
               onMouseEnter={(e) => {
                 if (typeof window === 'undefined') return
                 const element = e.target as HTMLElement
                 element.style.backgroundColor = 'var(--color-surface)'
+                element.style.transform = 'translateX(2px)'
               }}
               onMouseLeave={(e) => {
                 if (typeof window === 'undefined') return
                 const element = e.target as HTMLElement
                 element.style.backgroundColor = 'transparent'
+                element.style.transform = 'translateX(0)'
               }}
               onClick={() => {
                 onSelect(option.value as T)

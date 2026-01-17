@@ -74,24 +74,29 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed right-0 z-50 backdrop-blur-md shadow-lg transition-all duration-500 ease-in-out ${
+      <aside className={`fixed right-0 z-50 backdrop-blur-xl shadow-xl transition-all duration-500 ease-in-out ${
         isCollapsed ? 'w-0 overflow-hidden opacity-0 translate-x-full' : 'w-full sm:w-80 md:w-80 lg:w-80 opacity-100 translate-x-0'
       }`} style={{ 
         top: '64px', // Account for TopNavbar height
         height: 'calc(100vh - 64px)', // Adjust height to account for TopNavbar
-        backgroundColor: 'var(--color-bg)', 
+        backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.95)', 
         borderLeft: isCollapsed ? 'none' : '1px solid var(--color-border)',
         borderRadius: 'var(--radius) 0 0 var(--radius)',
         maxWidth: isCollapsed ? '0' : '320px',
         minWidth: isCollapsed ? '0' : '280px',
-        pointerEvents: isCollapsed ? 'none' : 'auto'
+        pointerEvents: isCollapsed ? 'none' : 'auto',
+        boxShadow: isCollapsed ? 'none' : '-4px 0 6px -1px rgba(0, 0, 0, 0.1), -2px 0 4px -2px rgba(0, 0, 0, 0.1)'
       }}>
         <div className="h-full flex flex-col">
           {/* Header with collapse button */}
-          <div className="flex items-center justify-between px-4 py-3 sm:py-4 min-h-[60px]">
-            <h2 className="font-semibold text-base sm:text-lg" style={{ color: 'var(--color-text)' }}>Controls</h2>
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
+          <div className="flex items-center justify-between px-4 py-3 sm:py-4 min-h-[60px] gap-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
+            <h2 className="font-bold text-base sm:text-lg" style={{ 
+              color: 'var(--color-text)',
+              letterSpacing: '-0.02em',
+              fontWeight: 700
+            }}>Controls</h2>
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5">
                 <Button
                   onClick={() => setShowDisclaimer(!showDisclaimer)}
                   variant="ghost"
@@ -164,19 +169,20 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
           </div>
 
           {/* Tab Navigation */}
-          <div className="p-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
-            <div className="flex p-1" style={{ 
+          <div className="px-4 pt-4 pb-3" style={{ borderBottom: '1px solid var(--color-border)' }}>
+            <div className="flex p-1 gap-1" style={{ 
               borderRadius: 'var(--radius)',
               backgroundColor: 'var(--color-surface)'
             }}>
               <button
                 onClick={() => setActiveTab('theme')}
-                className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
+                className="flex-1 px-3 py-2 text-xs font-semibold transition-all duration-200"
                 style={{ 
                   borderRadius: 'var(--radius)',
                   backgroundColor: activeTab === 'theme' ? 'var(--color-bg)' : 'transparent',
                   color: activeTab === 'theme' ? 'var(--color-text)' : 'var(--color-text-secondary)',
-                  boxShadow: activeTab === 'theme' ? 'var(--shadow-sm)' : 'none'
+                  boxShadow: activeTab === 'theme' ? 'var(--shadow-sm)' : 'none',
+                  letterSpacing: '-0.01em'
                 }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'theme') {
@@ -197,12 +203,13 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
               </button>
               <button
                 onClick={() => setActiveTab('presets')}
-                className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
+                className="flex-1 px-3 py-2 text-xs font-semibold transition-all duration-200"
                 style={{ 
                   borderRadius: 'var(--radius)',
                   backgroundColor: activeTab === 'presets' ? 'var(--color-bg)' : 'transparent',
                   color: activeTab === 'presets' ? 'var(--color-text)' : 'var(--color-text-secondary)',
-                  boxShadow: activeTab === 'presets' ? 'var(--shadow-sm)' : 'none'
+                  boxShadow: activeTab === 'presets' ? 'var(--shadow-sm)' : 'none',
+                  letterSpacing: '-0.01em'
                 }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'presets') {
@@ -224,12 +231,13 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
               {project.type === 'rubik' && (
                 <button
                   onClick={() => setActiveTab('rubik')}
-                  className="flex-1 px-2 py-2 text-xs font-medium transition-colors"
+                  className="flex-1 px-3 py-2 text-xs font-semibold transition-all duration-200"
                   style={{ 
                     borderRadius: 'var(--radius)',
                     backgroundColor: activeTab === 'rubik' ? 'var(--color-bg)' : 'transparent',
                     color: activeTab === 'rubik' ? 'var(--color-text)' : 'var(--color-text-secondary)',
-                    boxShadow: activeTab === 'rubik' ? 'var(--shadow-sm)' : 'none'
+                    boxShadow: activeTab === 'rubik' ? 'var(--shadow-sm)' : 'none',
+                    letterSpacing: '-0.01em'
                   }}
                   onMouseEnter={(e) => {
                     if (activeTab !== 'rubik') {
@@ -253,7 +261,7 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
           </div>
 
           {/* Tab Content */}
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1 overflow-y-auto px-4 pt-6 pb-4">
             <div className="transition-all duration-300 ease-in-out">
               {activeTab === 'theme' && (
                 <div className="animate-fadeIn">

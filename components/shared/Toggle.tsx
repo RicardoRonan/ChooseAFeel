@@ -33,23 +33,37 @@ export default function Toggle({
   return (
     <div className={`flex items-center justify-between ${className}`}>
       {label && (
-        <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+        <span className="text-xs font-medium" style={{ 
+          color: 'var(--color-text-secondary)',
+          letterSpacing: '-0.01em'
+        }}>
           {label}
         </span>
       )}
       <button
         onClick={() => onChange(!checked)}
-        className={`relative inline-flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses[size]}`}
+        className={`relative inline-flex items-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses[size]}`}
         style={{ 
-          backgroundColor: checked ? 'var(--color-primary)' : 'var(--color-surface)',
-          borderRadius: 'var(--radius)'
+          backgroundColor: checked ? 'var(--color-primary)' : 'var(--color-secondary)',
+          borderRadius: 'var(--radius)',
+          boxShadow: checked ? 'var(--shadow-sm)' : 'var(--shadow-sm)',
+          border: '1px solid transparent'
+        }}
+        onMouseEnter={(e) => {
+          const element = e.target as HTMLElement
+          element.style.boxShadow = 'var(--shadow-md)'
+        }}
+        onMouseLeave={(e) => {
+          const element = e.target as HTMLElement
+          element.style.boxShadow = 'var(--shadow-sm)'
         }}
       >
         <span
-          className={`inline-block transform transition-transform ${thumbSizeClasses[size]} ${translateClasses[size]}`}
+          className={`inline-block transform transition-transform duration-200 ${thumbSizeClasses[size]} ${translateClasses[size]}`}
           style={{ 
             backgroundColor: 'var(--color-bg)',
-            borderRadius: 'var(--radius)'
+            borderRadius: '50%',
+            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
           }}
         />
       </button>
