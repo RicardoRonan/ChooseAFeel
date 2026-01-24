@@ -211,7 +211,7 @@ export default function ThemePanel() {
           borderTop: '1px solid var(--color-border)',
           backgroundColor: 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.95)',
           backdropFilter: 'blur(12px)',
-          zIndex: 1
+          zIndex: 0
         }}
       >
         <Button 

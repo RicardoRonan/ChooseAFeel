@@ -89,7 +89,7 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
       }}>
         <div className="h-full flex flex-col">
           {/* Header with collapse button */}
-          <div className="flex items-center justify-between px-4 py-3 sm:py-4 min-h-[60px] gap-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
+          <div className="flex items-center justify-between px-4 py-3 sm:py-10 min-h-[60px] gap-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
             <h2 className="font-bold text-base sm:text-lg" style={{ 
               color: 'var(--color-text)',
               letterSpacing: '-0.02em',
@@ -184,20 +184,6 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
                   boxShadow: activeTab === 'theme' ? 'var(--shadow-sm)' : 'none',
                   letterSpacing: '-0.01em'
                 }}
-                onMouseEnter={(e) => {
-                  if (activeTab !== 'theme') {
-                    const element = e.target as HTMLElement
-                    const computedStyle = getComputedStyle(document.documentElement)
-                    element.style.color = computedStyle.getPropertyValue('--color-text')
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeTab !== 'theme') {
-                    const element = e.target as HTMLElement
-                    const computedStyle = getComputedStyle(document.documentElement)
-                    element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
-                  }
-                }}
               >
                 Theme
               </button>
@@ -210,20 +196,6 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
                   color: activeTab === 'presets' ? 'var(--color-text)' : 'var(--color-text-secondary)',
                   boxShadow: activeTab === 'presets' ? 'var(--shadow-sm)' : 'none',
                   letterSpacing: '-0.01em'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeTab !== 'presets') {
-                    const element = e.target as HTMLElement
-                    const computedStyle = getComputedStyle(document.documentElement)
-                    element.style.color = computedStyle.getPropertyValue('--color-text')
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeTab !== 'presets') {
-                    const element = e.target as HTMLElement
-                    const computedStyle = getComputedStyle(document.documentElement)
-                    element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
-                  }
                 }}
               >
                 Presets
@@ -238,20 +210,6 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
                     color: activeTab === 'rubik' ? 'var(--color-text)' : 'var(--color-text-secondary)',
                     boxShadow: activeTab === 'rubik' ? 'var(--shadow-sm)' : 'none',
                     letterSpacing: '-0.01em'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeTab !== 'rubik') {
-                      const element = e.target as HTMLElement
-                      const computedStyle = getComputedStyle(document.documentElement)
-                      element.style.color = computedStyle.getPropertyValue('--color-text')
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeTab !== 'rubik') {
-                      const element = e.target as HTMLElement
-                      const computedStyle = getComputedStyle(document.documentElement)
-                      element.style.color = computedStyle.getPropertyValue('--color-text-secondary')
-                    }
                   }}
                 >
                   Cube
@@ -302,16 +260,6 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
           }}
           title="Show sidebar"
           data-sidebar-toggle
-          onMouseEnter={(e) => {
-            const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.6)'
-            element.style.color = 'var(--color-text)'
-          }}
-          onMouseLeave={(e) => {
-            const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.3)'
-            element.style.color = 'var(--color-text-secondary)'
-          }}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -338,16 +286,6 @@ export default function Sidebar({ isCollapsed, onCollapseChange }: SidebarProps)
           }}
           title="Show sidebar"
           data-sidebar-toggle
-          onMouseEnter={(e) => {
-            const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.9)'
-            element.style.color = 'var(--color-text)'
-          }}
-          onMouseLeave={(e) => {
-            const element = e.target as HTMLElement
-            element.style.backgroundColor = 'rgba(var(--color-bg-rgb, 255, 255, 255), 0.8)'
-            element.style.color = 'var(--color-text-secondary)'
-          }}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

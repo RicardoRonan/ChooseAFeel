@@ -57,7 +57,11 @@ export default function Dropdown<T = string>({
   const displayValue = selectedOption ? selectedOption.label : placeholder
 
   return (
-    <div className={`relative ${width} ${className}`} ref={dropdownRef}>
+    <div
+      className={`relative ${width} ${className}`}
+      ref={dropdownRef}
+      style={{ zIndex: isOpen ? 20 : "auto" }}
+    >
       <button 
         ref={buttonRef}
         className={`${width} text-sm px-3 py-2.5 flex items-center justify-between transition-all duration-200`}
@@ -108,7 +112,7 @@ export default function Dropdown<T = string>({
             borderRadius: 'var(--radius)',
             boxShadow: 'var(--shadow-xl)',
             backdropFilter: 'blur(12px)',
-            zIndex: 10000
+            zIndex: 30
           }}
         >
           {options.map((option, index) => (
